@@ -1,0 +1,24 @@
+<section class="cta reveal" aria-label="{{ section.settings.label }}">
+  {%- if section.settings.label != blank -%}
+    <p class="cta__label">{{ section.settings.label }}</p>
+  {%- endif -%}
+  <h2 class="cta__title">{{ section.settings.title }}</h2>
+  {%- if section.settings.link_text != blank -%}
+    <a href="{{ section.settings.link_url | default: '/collections/all' }}" class="cta__link">
+      {{ section.settings.link_text }}
+    </a>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "CTA Full",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Small label", "default": "Begin here" },
+    { "type": "richtext", "id": "title", "label": "Title", "default": "<p>The ring you'll wear<br>for the <em>rest of your life</em><br>starts here.</p>" },
+    { "type": "text", "id": "link_text", "label": "Link text", "default": "Explore the collection" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "presets": [{ "name": "CTA Full" }]
+}
+{% endschema %}

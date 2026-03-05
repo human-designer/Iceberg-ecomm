@@ -1,0 +1,15 @@
+<section class="manifesto reveal" aria-label="Brand manifesto">
+  <p class="manifesto__label">{{ section.settings.label }}</p>
+  <p class="manifesto__text">{{ section.settings.text }}</p>
+</section>
+
+{% schema %}
+{
+  "name": "Manifesto",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Label", "default": "Our belief" },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Iceberg is a design-led atelier.<br>Each ring is a <em>considered object</em> —<br>not a commodity, not a category.<br><em>Five settings. One standard.</em></p>" }
+  ],
+  "presets": [{ "name": "Manifesto" }]
+}
+{% endschema %}

@@ -1,0 +1,35 @@
+<section class="diamond-specs reveal" aria-label="Diamond specifications">
+  <div class="diamond__specs">
+    {%- for block in section.blocks -%}
+      <div class="diamond__spec" {{ block.shopify_attributes }}>
+        <p class="diamond__spec-label">{{ block.settings.label }}</p>
+        <p class="diamond__spec-value">{{ block.settings.value }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Diamond Specs",
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Spec",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "text", "id": "value", "label": "Value" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Diamond Specs",
+    "blocks": [
+      { "type": "spec", "settings": { "label": "Colour", "value": "E" }},
+      { "type": "spec", "settings": { "label": "Clarity", "value": "VVS2" }},
+      { "type": "spec", "settings": { "label": "Cut", "value": "Excellent" }},
+      { "type": "spec", "settings": { "label": "Origin", "value": "Lab-Grown" }}
+    ]
+  }]
+}
+{% endschema %}

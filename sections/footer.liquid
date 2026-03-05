@@ -1,0 +1,50 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__top">
+    <div class="footer__brand-col">
+      <p class="footer__brand">{{ shop.name }}</p>
+      <p class="footer__tagline">{{ section.settings.tagline }}</p>
+    </div>
+    <div>
+      <p class="footer__col-label">Collection</p>
+      <ul class="footer__links">
+        <li><a href="/collections/all">Rings</a></li>
+        <li><a href="/pages/our-approach">Our Approach</a></li>
+        <li><a href="/pages/diamonds">Diamonds</a></li>
+        <li><a href="/pages/about">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-label">Support</p>
+      <ul class="footer__links">
+        <li><a href="/pages/shipping">Shipping</a></li>
+        <li><a href="/pages/returns">Returns</a></li>
+        <li><a href="/pages/warranty">Warranty</a></li>
+        <li><a href="/pages/ring-sizing">Ring Sizing</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer__col-label">Follow</p>
+      <ul class="footer__links">
+        {%- if section.settings.instagram_url != blank -%}
+          <li><a href="{{ section.settings.instagram_url }}" target="_blank" rel="noopener">Instagram</a></li>
+        {%- endif -%}
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <p class="footer__legal">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    <p class="footer__legal">
+      <a href="/policies/privacy-policy">Privacy</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="/policies/terms-of-service">Terms</a>
+    </p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "A design-led engagement ring atelier. Montréal, Canada." },
+    { "type": "url", "id": "instagram_url", "label": "Instagram URL" }
+  ]
+}
+{% endschema %}

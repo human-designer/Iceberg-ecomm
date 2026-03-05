@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "manifesto": { "type": "manifesto", "settings": {} },
+    "collection-grid": { "type": "collection-grid", "settings": {} },
+    "craft": { "type": "editorial-split", "settings": { "layout": "image_left" } },
+    "diamond": { "type": "editorial-split", "settings": { "layout": "image_right" } },
+    "trust": { "type": "trust-bar", "settings": {} },
+    "cta": { "type": "cta-full", "settings": {} }
+  },
+  "order": ["hero", "manifesto", "collection-grid", "craft", "diamond", "trust", "cta"]
+}

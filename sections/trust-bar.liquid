@@ -1,0 +1,36 @@
+<section class="trust reveal" aria-label="Trust signals">
+  <div class="trust__grid">
+    {%- for block in section.blocks -%}
+      <div class="trust__item" {{ block.shopify_attributes }}>
+        <div class="trust__item-line" aria-hidden="true"></div>
+        <p class="trust__item-title">{{ block.settings.title }}</p>
+        <p class="trust__item-body">{{ block.settings.body }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Bar",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Trust Bar",
+    "blocks": [
+      { "type": "item", "settings": { "title": "30-Day Returns", "body": "If it isn't right, return it. No questions. Full refund within 30 days of delivery." }},
+      { "type": "item", "settings": { "title": "IGI Certified", "body": "Every diamond ships with a full IGI certificate, accessible through your product page." }},
+      { "type": "item", "settings": { "title": "Ethically Crafted", "body": "Lab-grown diamonds. Recycled 18K gold. Made by hand, made to last." }},
+      { "type": "item", "settings": { "title": "Insured Shipping", "body": "Fully insured, signature-required delivery across Canada. Complimentary." }}
+    ]
+  }]
+}
+{% endschema %}

@@ -1,0 +1,40 @@
+<section class="editorial-split editorial-split--{{ section.settings.layout }} reveal">
+  <div class="editorial-split__image">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: section.settings.image_alt }}
+    {%- else -%}
+      <div class="editorial-split__image-placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+  <div class="editorial-split__content">
+    {%- if section.settings.label != blank -%}
+      <p class="section-label">{{ section.settings.label }}</p>
+    {%- endif -%}
+    <h2 class="editorial-split__title">{{ section.settings.title }}</h2>
+    {%- if section.settings.body != blank -%}
+      <div class="editorial-split__body rte">{{ section.settings.body }}</div>
+    {%- endif -%}
+    {%- if section.settings.link_text != blank and section.settings.link_url != blank -%}
+      <a href="{{ section.settings.link_url }}" class="editorial-split__link">
+        {{ section.settings.link_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial Split",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Image position", "options": [{"value": "image_left", "label": "Image left"}, {"value": "image_right", "label": "Image right"}], "default": "image_left" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    { "type": "text", "id": "label", "label": "Section label" },
+    { "type": "richtext", "id": "title", "label": "Title" },
+    { "type": "richtext", "id": "body", "label": "Body copy" },
+    { "type": "text", "id": "link_text", "label": "Link text" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "presets": [{ "name": "Editorial Split" }]
+}
+{% endschema %}

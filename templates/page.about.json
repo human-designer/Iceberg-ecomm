@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "about-hero": { "type": "page-hero", "settings": {} },
+    "about-manifesto": { "type": "manifesto", "settings": {} },
+    "about-craft": { "type": "editorial-split", "settings": {} },
+    "about-values": { "type": "trust-bar", "settings": {} }
+  },
+  "order": ["about-hero", "about-manifesto", "about-craft", "about-values"]
+}

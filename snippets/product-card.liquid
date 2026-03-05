@@ -1,0 +1,16 @@
+{%- comment -%}
+  Usage: render 'product-card', product: product
+{%- endcomment -%}
+<a href="{{ product.url }}" class="setting-card" aria-label="{{ product.title }}">
+  <div class="setting-card__image">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.featured_image.alt }}
+    {%- else -%}
+      <div class="setting-card__image-placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+  <div class="setting-card__info">
+    <span class="setting-card__number">No.{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+    <span class="setting-card__name">{{ product.title }}</span>
+  </div>
+</a>

@@ -1,0 +1,31 @@
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <ul class="nav__links">
+    <li><a href="/collections/all">Rings</a></li>
+    <li><a href="/pages/our-approach">Our Approach</a></li>
+    <li><a href="/pages/diamonds">Diamonds</a></li>
+    <li><a href="/pages/about">About</a></li>
+  </ul>
+
+  <a href="/" class="nav__brand" aria-label="{{ shop.name }} home">
+    {{ shop.name }}
+  </a>
+
+  <div class="nav__actions">
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="/account" aria-label="Account">Account</a>
+    {%- endif -%}
+    <a href="/cart" class="nav__cart" aria-label="Cart ({{ cart.item_count }} items)">
+      {%- render 'icon-cart' -%}
+      {%- if cart.item_count > 0 -%}
+        <span class="nav__cart-count">{{ cart.item_count }}</span>
+      {%- endif -%}
+    </a>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

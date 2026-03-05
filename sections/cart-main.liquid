@@ -1,0 +1,14 @@
+<section class="cart-main">
+  <div class="cart-main__inner">
+    <h1 class="cart-main__title">Your Cart</h1>
+    {%- if cart.item_count == 0 -%}
+      <p class="cart-main__empty">Your cart is empty. <a href="/collections/all">Explore the collection.</a></p>
+    {%- else -%}
+      {%- render 'cart-items' -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

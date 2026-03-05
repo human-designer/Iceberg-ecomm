@@ -1,0 +1,41 @@
+/* ─── ICEBERG DESIGN TOKENS ─────────────────────────────────────────────── */
+:root {
+  /* Colour */
+  --white:        #FFFFFF;
+  --off-white:    #F7F6F3;
+  --black:        #0A0A0A;
+  --charcoal:     #1C1C1C;
+  --mid-grey:     #8A8A8A;
+  --light-grey:   #D6D4CF;
+  --powder-blue:  #C4D4DE;
+
+  /* Typography */
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs:   8px;
+  --space-sm:   16px;
+  --space-md:   32px;
+  --space-lg:   64px;
+  --space-xl:   120px;
+  --space-2xl:  180px;
+
+  /* Transitions */
+  --ease:         cubic-bezier(0.25, 0.1, 0.25, 1);
+  --t-fast:       200ms;
+  --t-medium:     400ms;
+  --t-slow:       600ms;
+
+  /* Layout */
+  --page-padding: 48px;
+  --nav-height:   80px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 24px;
+    --space-xl:     80px;
+    --space-2xl:    120px;
+  }
+}

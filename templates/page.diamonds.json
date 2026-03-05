@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "diamonds-hero": { "type": "page-hero", "settings": {} },
+    "diamonds-content": { "type": "editorial-split", "settings": {} },
+    "diamond-specs": { "type": "diamond-specs", "settings": {} }
+  },
+  "order": ["diamonds-hero", "diamonds-content", "diamond-specs"]
+}

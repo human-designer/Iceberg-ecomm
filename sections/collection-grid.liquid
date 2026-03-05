@@ -1,0 +1,32 @@
+<section class="settings reveal" aria-label="Ring collection">
+  <div class="settings__header">
+    <div>
+      <p class="section-label">{{ section.settings.label }}</p>
+      <h2 class="settings__title">{{ section.settings.heading }}</h2>
+    </div>
+    <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="settings__view-all">
+      {{ section.settings.view_all_text | default: 'View all rings' }}
+    </a>
+  </div>
+  <div class="settings__grid">
+    {%- comment -%} Product cards rendered by product-card snippet {%- endcomment -%}
+    {%- if collection != blank -%}
+      {%- for product in collection.products limit: 5 -%}
+        {%- render 'product-card', product: product -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Section label", "default": "The Collection" },
+    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Five settings.<br><em>One for life.</em></p>" },
+    { "type": "text", "id": "view_all_text", "label": "View all link text", "default": "View all rings" },
+    { "type": "url", "id": "view_all_url", "label": "View all link URL" }
+  ],
+  "presets": [{ "name": "Collection Grid" }]
+}
+{% endschema %}

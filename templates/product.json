@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "product-main": { "type": "product-main", "settings": {} },
+    "product-details": { "type": "product-details", "settings": {} },
+    "related": { "type": "collection-grid", "settings": { "heading": "You may also consider" } }
+  },
+  "order": ["product-main", "product-details", "related"]
+}
