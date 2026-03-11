@@ -1,0 +1,86 @@
+<section class="rings-by-cut reveal" aria-label="{{ section.settings.heading | escape }}">
+  <h2 class="rings-by-cut__heading">{{ section.settings.heading }}</h2>
+
+  {%- assign row_size = 4 -%}
+  {%- assign total = section.blocks.size -%}
+
+  <div class="rings-by-cut__row">
+    {%- for block in section.blocks limit: row_size -%}
+      <div class="rings-by-cut__item" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.url | default: '#' }}" class="rings-by-cut__image-link">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 600 | image_tag:
+                loading: 'lazy',
+                alt: block.settings.label | escape }}
+          {%- else -%}
+            <div class="rings-by-cut__placeholder" aria-hidden="true"></div>
+          {%- endif -%}
+        </a>
+        {%- if block.settings.label != blank -%}
+          <p class="rings-by-cut__label">{{ block.settings.label }}</p>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if total > row_size -%}
+    <div class="rings-by-cut__row">
+      {%- for block in section.blocks offset: row_size -%}
+        <div class="rings-by-cut__item" {{ block.shopify_attributes }}>
+          <a href="{{ block.settings.url | default: '#' }}" class="rings-by-cut__image-link">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 600 | image_tag:
+                  loading: 'lazy',
+                  alt: block.settings.label | escape }}
+            {%- else -%}
+              <div class="rings-by-cut__placeholder" aria-hidden="true"></div>
+            {%- endif -%}
+          </a>
+          {%- if block.settings.label != blank -%}
+            <p class="rings-by-cut__label">{{ block.settings.label }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Rings by Cut",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Rings by Cut"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "cut",
+      "name": "Cut type",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text",         "id": "label", "label": "Label",    "default": "Shop Round" },
+        { "type": "url",          "id": "url",   "label": "Link URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rings by Cut",
+      "blocks": [
+        { "type": "cut", "settings": { "label": "Shop Solitaire" } },
+        { "type": "cut", "settings": { "label": "Shop Cushion" } },
+        { "type": "cut", "settings": { "label": "Shop Emerald" } },
+        { "type": "cut", "settings": { "label": "Shop Pear" } },
+        { "type": "cut", "settings": { "label": "Shop Oval" } },
+        { "type": "cut", "settings": { "label": "Shop Marquise" } },
+        { "type": "cut", "settings": { "label": "Shop Princess" } },
+        { "type": "cut", "settings": { "label": "Shop Radiant" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

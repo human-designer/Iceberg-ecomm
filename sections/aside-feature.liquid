@@ -1,0 +1,53 @@
+<section class="aside-feature reveal">
+  <div class="aside-feature__content-col">
+    <div class="aside-feature__content">
+      {%- if section.settings.label != blank -%}
+        <p class="section-label">{{ section.settings.label }}</p>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h2 class="aside-feature__title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+      {%- if section.settings.body != blank -%}
+        <div class="aside-feature__body rte">{{ section.settings.body }}</div>
+      {%- endif -%}
+      {%- if section.settings.link_text != blank -%}
+        <a href="{{ section.settings.link_url | default: '#' }}" class="btn-outline">
+          {{ section.settings.link_text }}
+        </a>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.secondary_image != blank -%}
+      <div class="aside-feature__secondary">
+        {{ section.settings.secondary_image | image_url: width: 600 | image_tag:
+            loading: 'lazy',
+            alt: '' }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="aside-feature__image-col">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1400 | image_tag:
+          loading: 'lazy',
+          alt: '' }}
+    {%- else -%}
+      <div class="aside-feature__placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature Aside",
+  "settings": [
+    { "type": "text",         "id": "label",           "label": "Small label" },
+    { "type": "text",         "id": "title",           "label": "Title" },
+    { "type": "richtext",     "id": "body",            "label": "Body copy" },
+    { "type": "text",         "id": "link_text",       "label": "Button text" },
+    { "type": "url",          "id": "link_url",        "label": "Button URL" },
+    { "type": "image_picker", "id": "secondary_image", "label": "Secondary image (small, bottom-left)" },
+    { "type": "image_picker", "id": "image",           "label": "Main image (right column)" }
+  ],
+  "presets": [{ "name": "Feature Aside" }]
+}
+{% endschema %}

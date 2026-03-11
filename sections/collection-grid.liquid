@@ -1,18 +1,22 @@
-<section class="settings reveal" aria-label="Ring collection">
-  <div class="settings__header">
-    <div>
-      <p class="section-label">{{ section.settings.label }}</p>
-      <h2 class="settings__title">{{ section.settings.heading }}</h2>
-    </div>
-    <a href="{{ section.settings.view_all_url | default: '/collections/all' }}" class="settings__view-all">
-      {{ section.settings.view_all_text | default: 'View all rings' }}
-    </a>
-  </div>
-  <div class="settings__grid">
-    {%- comment -%} Product cards rendered by product-card snippet {%- endcomment -%}
-    {%- if collection != blank -%}
-      {%- for product in collection.products limit: 5 -%}
+<section class="classics reveal" aria-label="{{ section.settings.heading | escape }}">
+  <h2 class="classics__heading">{{ section.settings.heading }}</h2>
+
+  <div class="classics__grid">
+    {%- assign grid_collection = collections[section.settings.collection] -%}
+    {%- if grid_collection != blank and grid_collection.products.size > 0 -%}
+      {%- for product in grid_collection.products limit: 6 -%}
         {%- render 'product-card', product: product -%}
+      {%- endfor -%}
+    {%- else -%}
+      {%- for i in (1..6) -%}
+        <div class="product-card product-card--placeholder">
+          <div class="product-card__image-wrap"></div>
+          <div class="product-card__info">
+            <p class="product-card__title">Iceberg No.{{ i }}</p>
+            <p class="product-card__desc">1ct round brilliant lab diamond ring</p>
+            <p class="product-card__price">Make an Enquiry</p>
+          </div>
+        </div>
       {%- endfor -%}
     {%- endif -%}
   </div>
@@ -20,13 +24,20 @@
 
 {% schema %}
 {
-  "name": "Collection Grid",
+  "name": "Classics Collection",
   "settings": [
-    { "type": "text", "id": "label", "label": "Section label", "default": "The Collection" },
-    { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Five settings.<br><em>One for life.</em></p>" },
-    { "type": "text", "id": "view_all_text", "label": "View all link text", "default": "View all rings" },
-    { "type": "url", "id": "view_all_url", "label": "View all link URL" }
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section heading",
+      "default": "Iceberg Classics"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
   ],
-  "presets": [{ "name": "Collection Grid" }]
+  "presets": [{ "name": "Classics Collection" }]
 }
 {% endschema %}

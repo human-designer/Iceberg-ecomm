@@ -1,16 +1,25 @@
 {%- comment -%}
   Usage: render 'product-card', product: product
 {%- endcomment -%}
-<a href="{{ product.url }}" class="setting-card" aria-label="{{ product.title }}">
-  <div class="setting-card__image">
+<a href="{{ product.url }}" class="product-card" aria-label="{{ product.title | escape }}">
+  <div class="product-card__image-wrap">
     {%- if product.featured_image -%}
-      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', alt: product.featured_image.alt }}
+      {{ product.featured_image | image_url: width: 900 | image_tag:
+          loading: 'lazy',
+          alt: product.featured_image.alt | escape }}
     {%- else -%}
-      <div class="setting-card__image-placeholder" aria-hidden="true"></div>
+      <div class="product-card__image-placeholder" aria-hidden="true"></div>
     {%- endif -%}
   </div>
-  <div class="setting-card__info">
-    <span class="setting-card__number">No.{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-    <span class="setting-card__name">{{ product.title }}</span>
+  <div class="product-card__info">
+    <h3 class="product-card__title">{{ product.title }}</h3>
+    <p class="product-card__desc">{{ product.metafields.custom.subtitle | default: product.type }}</p>
+    <p class="product-card__price">
+      {%- if product.price == 0 -%}
+        Make an Enquiry
+      {%- else -%}
+        {{ product.price | money }}
+      {%- endif -%}
+    </p>
   </div>
 </a>

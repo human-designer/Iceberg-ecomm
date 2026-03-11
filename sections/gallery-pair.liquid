@@ -1,0 +1,33 @@
+<div class="gallery-pair">
+  <div class="gallery-pair__left">
+    {%- if section.settings.image_left != blank -%}
+      {{ section.settings.image_left | image_url: width: 1400 | image_tag:
+          loading: 'lazy',
+          alt: section.settings.image_left_alt }}
+    {%- else -%}
+      <div class="gallery-pair__placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+  <div class="gallery-pair__right">
+    {%- if section.settings.image_right != blank -%}
+      {{ section.settings.image_right | image_url: width: 1400 | image_tag:
+          loading: 'lazy',
+          alt: section.settings.image_right_alt }}
+    {%- else -%}
+      <div class="gallery-pair__placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Gallery Pair",
+  "settings": [
+    { "type": "image_picker", "id": "image_left",      "label": "Left image" },
+    { "type": "text",         "id": "image_left_alt",  "label": "Left image alt text" },
+    { "type": "image_picker", "id": "image_right",     "label": "Right image" },
+    { "type": "text",         "id": "image_right_alt", "label": "Right image alt text" }
+  ],
+  "presets": [{ "name": "Gallery Pair" }]
+}
+{% endschema %}

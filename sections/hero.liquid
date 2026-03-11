@@ -1,43 +1,26 @@
 <section class="hero" aria-label="Hero">
   {%- if section.settings.video != blank -%}
-    <video class="hero__video" autoplay muted loop playsinline
+    <video class="hero__media" autoplay muted loop playsinline
            aria-hidden="true"
-           poster="{{ section.settings.video_poster | img_url: '2000x' }}">
+           poster="{{ section.settings.video_poster | image_url: width: 2000 }}">
       <source src="{{ section.settings.video }}" type="video/mp4">
     </video>
   {%- elsif section.settings.image != blank -%}
-    <div class="hero__image">
+    <div class="hero__media">
       {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', fetchpriority: 'high', alt: '' }}
     </div>
   {%- else -%}
-    <div class="hero__video-placeholder" aria-hidden="true"></div>
+    <div class="hero__media hero__media--placeholder" aria-hidden="true"></div>
   {%- endif -%}
-
-  <div class="hero__overlay" aria-hidden="true"></div>
-
-  {%- if section.settings.label != blank -%}
-    <span class="hero__label">{{ section.settings.label }}</span>
-  {%- endif -%}
-
-  <div class="hero__content">
-    <p class="hero__manifesto">{{ section.settings.manifesto }}</p>
-  </div>
-
-  <div class="hero__scroll-hint" aria-hidden="true">
-    <span class="hero__scroll-line"></span>
-    Scroll
-  </div>
 </section>
 
 {% schema %}
 {
   "name": "Hero",
   "settings": [
-    { "type": "video_url", "id": "video", "label": "Video URL", "accept": ["mp4"] },
+    { "type": "url",          "id": "video",        "label": "Video URL" },
     { "type": "image_picker", "id": "video_poster", "label": "Video poster / mobile fallback" },
-    { "type": "image_picker", "id": "image", "label": "Fallback image (if no video)" },
-    { "type": "text", "id": "label", "label": "Small label", "default": "Est. 2025 — Montréal" },
-    { "type": "richtext", "id": "manifesto", "label": "Manifesto text", "default": "<p>The <em>most worn</em> object<br>of your life should be<br>the <em>most considered.</em></p>" }
+    { "type": "image_picker", "id": "image",        "label": "Hero image (if no video)" }
   ],
   "presets": [{ "name": "Hero" }]
 }

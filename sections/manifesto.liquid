@@ -1,14 +1,42 @@
-<section class="manifesto reveal" aria-label="Brand manifesto">
-  <p class="manifesto__label">{{ section.settings.label }}</p>
-  <p class="manifesto__text">{{ section.settings.text }}</p>
+<section class="manifesto-hero reveal" aria-label="Brand manifesto">
+  <div class="manifesto-hero__heading">
+    <span class="manifesto-hero__heading-light">{{ section.settings.heading_part1 }}</span>
+    <em class="manifesto-hero__heading-italic"> {{ section.settings.heading_part2 }}</em>
+  </div>
+
+  <div class="manifesto-hero__arrow" aria-hidden="true">
+    <svg width="27" height="28" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.5 1L13.5 27M13.5 27L1 14.5M13.5 27L26 14.5" stroke="#A9B5C2" stroke-width="1"/>
+    </svg>
+  </div>
+
+  {%- if section.settings.body != blank -%}
+    <p class="manifesto-hero__body">{{ section.settings.body }}</p>
+  {%- endif -%}
 </section>
 
 {% schema %}
 {
   "name": "Manifesto",
   "settings": [
-    { "type": "text", "id": "label", "label": "Label", "default": "Our belief" },
-    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Iceberg is a design-led atelier.<br>Each ring is a <em>considered object</em> —<br>not a commodity, not a category.<br><em>Five settings. One standard.</em></p>" }
+    {
+      "type": "text",
+      "id": "heading_part1",
+      "label": "Heading — regular",
+      "default": "One object. Every day. For the rest of your life."
+    },
+    {
+      "type": "text",
+      "id": "heading_part2",
+      "label": "Heading — italic emphasis",
+      "default": "Perfect Choice."
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard — because the most worn object of your life deserves nothing less."
+    }
   ],
   "presets": [{ "name": "Manifesto" }]
 }

@@ -1,12 +1,82 @@
 {
   "sections": {
-    "hero": { "type": "hero", "settings": {} },
-    "manifesto": { "type": "manifesto", "settings": {} },
-    "collection-grid": { "type": "collection-grid", "settings": {} },
-    "craft": { "type": "editorial-split", "settings": { "layout": "image_left" } },
-    "diamond": { "type": "editorial-split", "settings": { "layout": "image_right" } },
-    "trust": { "type": "trust-bar", "settings": {} },
-    "cta": { "type": "cta-full", "settings": {} }
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "manifesto": {
+      "type": "manifesto",
+      "settings": {
+        "heading_part1": "One object. Every day. For the rest of your life.",
+        "heading_part2": "Perfect Choice.",
+        "body": "Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard — because the most worn object of your life deserves nothing less."
+      }
+    },
+    "gallery-pair": {
+      "type": "gallery-pair",
+      "settings": {}
+    },
+    "classics": {
+      "type": "collection-grid",
+      "settings": {
+        "heading": "Iceberg Classics"
+      }
+    },
+    "perfect-choice": {
+      "type": "editorial-split",
+      "settings": {
+        "layout": "image_left",
+        "title": "Perfect Choice.",
+        "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
+        "link_text": "Shop Collection",
+        "link_url": "/collections/all"
+      }
+    },
+    "rings-by-cut": {
+      "type": "rings-by-cut",
+      "settings": {
+        "heading": "Rings by Cut"
+      },
+      "blocks": {
+        "cut-1": { "type": "cut", "settings": { "label": "Shop Solitaire" } },
+        "cut-2": { "type": "cut", "settings": { "label": "Shop Cushion" } },
+        "cut-3": { "type": "cut", "settings": { "label": "Shop Emerald" } },
+        "cut-4": { "type": "cut", "settings": { "label": "Shop Pear" } },
+        "cut-5": { "type": "cut", "settings": { "label": "Shop Oval" } },
+        "cut-6": { "type": "cut", "settings": { "label": "Shop Marquise" } },
+        "cut-7": { "type": "cut", "settings": { "label": "Shop Princess" } },
+        "cut-8": { "type": "cut", "settings": { "label": "Shop Radiant" } }
+      },
+      "blocks_order": ["cut-1", "cut-2", "cut-3", "cut-4", "cut-5", "cut-6", "cut-7", "cut-8"]
+    },
+    "large-aside": {
+      "type": "aside-feature",
+      "settings": {
+        "title": "Perfect Choice.",
+        "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
+        "link_text": "Shop Collection",
+        "link_url": "/collections/all"
+      }
+    },
+    "cocreate": {
+      "type": "editorial-split",
+      "settings": {
+        "layout": "image_left",
+        "title": "We co-create with you",
+        "body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
+        "link_text": "Contact",
+        "link_url": "/pages/contact"
+      }
+    }
   },
-  "order": ["hero", "manifesto", "collection-grid", "craft", "diamond", "trust", "cta"]
+  "order": [
+    "hero",
+    "manifesto",
+    "gallery-pair",
+    "classics",
+    "perfect-choice",
+    "rings-by-cut",
+    "large-aside",
+    "cocreate"
+  ]
 }
