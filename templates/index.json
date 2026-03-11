@@ -12,11 +12,7 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "video": "",
-        "video_poster": "shopify://shop_images/Hero-1.png",
-        "image": "shopify://shop_images/Hero-1.png",
-        "label": "",
-        "manifesto": ""
+        "image": "shopify://shop_images/Hero-1.png"
       }
     },
     "manifesto": {
@@ -30,7 +26,9 @@
     "gallery-pair": {
       "type": "gallery-pair",
       "settings": {
+        "image_left": "shopify://shop_images/1.jpg",
         "image_left_alt": "",
+        "image_right": "shopify://shop_images/6.jpg",
         "image_right_alt": ""
       }
     },
