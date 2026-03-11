@@ -7,7 +7,14 @@
   </ul>
 
   <a href="/" class="nav__brand" aria-label="{{ shop.name }} home">
-    {{ shop.name }}
+    {%- if shop.brand.logo -%}
+      {{ shop.brand.logo | image_url: width: 400 | image_tag:
+          class: 'nav__brand-logo',
+          alt: shop.name,
+          loading: 'eager' }}
+    {%- else -%}
+      {{ shop.name }}
+    {%- endif -%}
   </a>
 
   <div class="nav__actions">

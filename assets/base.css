@@ -129,6 +129,12 @@ a { text-decoration: none; color: inherit; }
   color: var(--slate);
 }
 .nav__cart-icon { width: 18px; height: 18px; color: var(--slate); }
+.nav__brand-logo {
+  display: block;
+  width: auto;
+  height: 28px;
+  object-fit: contain;
+}
 
 /* ─── HERO ──────────────────────────────────────────────────────────────── */
 .hero {

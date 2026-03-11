@@ -1,11 +1,5 @@
 <section class="hero" aria-label="Hero">
-  {%- if section.settings.video != blank -%}
-    <video class="hero__media" autoplay muted loop playsinline
-           aria-hidden="true"
-           poster="{{ section.settings.video_poster | image_url: width: 2000 }}">
-      <source src="{{ section.settings.video }}" type="video/mp4">
-    </video>
-  {%- elsif section.settings.image != blank -%}
+  {%- if section.settings.image != blank -%}
     <div class="hero__media">
       {{ section.settings.image | image_url: width: 2000 | image_tag: loading: 'eager', fetchpriority: 'high', alt: '' }}
     </div>
@@ -18,13 +12,7 @@
 {
   "name": "Hero",
   "settings": [
-<<<<<<< HEAD
-    { "type": "url",          "id": "video",        "label": "Video URL" },
-=======
-    { "type": "url", "id": "video", "label": "Video URL" },
->>>>>>> c9decfdbafa12f7f420d33a5970aaa891293d705
-    { "type": "image_picker", "id": "video_poster", "label": "Video poster / mobile fallback" },
-    { "type": "image_picker", "id": "image",        "label": "Hero image (if no video)" }
+    { "type": "image_picker", "id": "image", "label": "Hero image" }
   ],
   "presets": [{ "name": "Hero" }]
 }
