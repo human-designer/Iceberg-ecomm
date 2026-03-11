@@ -11,7 +11,13 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {}
+      "settings": {
+        "video": "",
+        "video_poster": "shopify://shop_images/Hero-1.png",
+        "image": "shopify://shop_images/Hero-1.png",
+        "label": "",
+        "manifesto": ""
+      }
     },
     "manifesto": {
       "type": "manifesto",
@@ -23,18 +29,24 @@
     },
     "gallery-pair": {
       "type": "gallery-pair",
-      "settings": {}
+      "settings": {
+        "image_left_alt": "",
+        "image_right_alt": ""
+      }
     },
     "classics": {
       "type": "collection-grid",
       "settings": {
-        "heading": "Iceberg Classics"
+        "heading": "Iceberg Classics",
+        "collection": ""
       }
     },
     "perfect-choice": {
       "type": "editorial-split",
       "settings": {
         "layout": "image_left",
+        "image_alt": "",
+        "label": "",
         "title": "Perfect Choice.",
         "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
         "link_text": "Shop Collection",
@@ -45,22 +57,12 @@
       "type": "rings-by-cut",
       "settings": {
         "heading": "Rings by Cut"
-      },
-      "blocks": {
-        "cut-1": { "type": "cut", "settings": { "label": "Shop Solitaire" } },
-        "cut-2": { "type": "cut", "settings": { "label": "Shop Cushion" } },
-        "cut-3": { "type": "cut", "settings": { "label": "Shop Emerald" } },
-        "cut-4": { "type": "cut", "settings": { "label": "Shop Pear" } },
-        "cut-5": { "type": "cut", "settings": { "label": "Shop Oval" } },
-        "cut-6": { "type": "cut", "settings": { "label": "Shop Marquise" } },
-        "cut-7": { "type": "cut", "settings": { "label": "Shop Princess" } },
-        "cut-8": { "type": "cut", "settings": { "label": "Shop Radiant" } }
-      },
-      "blocks_order": ["cut-1", "cut-2", "cut-3", "cut-4", "cut-5", "cut-6", "cut-7", "cut-8"]
+      }
     },
     "large-aside": {
       "type": "aside-feature",
       "settings": {
+        "label": "",
         "title": "Perfect Choice.",
         "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
         "link_text": "Shop Collection",
@@ -71,6 +73,8 @@
       "type": "editorial-split",
       "settings": {
         "layout": "image_left",
+        "image_alt": "",
+        "label": "",
         "title": "We co-create with you",
         "body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
         "link_text": "Contact",
