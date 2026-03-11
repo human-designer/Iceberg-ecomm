@@ -142,7 +142,7 @@ a { text-decoration: none; color: inherit; }
   height: 810px;
   padding: 0 var(--page-padding) var(--page-padding);
   overflow: hidden;
-  background: var(--light-grey);
+  background: var(--white);
 }
 .hero__media {
   position: relative;
@@ -657,19 +657,28 @@ a { text-decoration: none; color: inherit; }
 }
 @media (max-width: 768px) {
   .nav__links { display: none; }
-  .hero { height: 540px; }
-  .manifesto-hero { padding: 80px var(--page-padding); }
+  .hero { height: 470px; }
+  .manifesto-hero { padding: 90px var(--page-padding); }
   .gallery-pair { flex-direction: column; align-items: stretch; }
   .gallery-pair__left,
   .gallery-pair__right { height: 360px; width: 100%; }
-  .classics__grid { grid-template-columns: repeat(2, 1fr); }
+  /* Classics — 2-column grid, reduced padding */
+  .classics { padding: 90px var(--page-padding); }
+  .classics__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .classics__heading { font-size: 34px; margin-bottom: 24px; }
+  /* Product card — tighter info on mobile */
+  .product-card__info { padding: 24px 8px; gap: 4px; }
+  .product-card__title { font-size: 18px; }
+  .product-card__desc { font-size: 12px; }
+  .product-card__price { font-size: 15px; margin-top: 6px; }
   .editorial-split { grid-template-columns: 1fr; min-height: auto; }
   .editorial-split--image_right { direction: ltr; }
   .editorial-split__content { padding: var(--space-lg) var(--page-padding); }
   .editorial-split__image { min-height: 440px; }
+  .rings-by-cut { padding: 90px var(--page-padding); }
   .rings-by-cut__row { flex-wrap: wrap; }
   .rings-by-cut__item { width: calc(50% - 4px); }
-  .rings-by-cut__image-link { height: 300px; }
+  .rings-by-cut__image-link { height: 260px; }
   .aside-feature__content-col { padding: var(--space-lg) var(--page-padding); }
   .cta { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr 1fr; }
