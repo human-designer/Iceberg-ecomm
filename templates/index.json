@@ -35,8 +35,8 @@
     "classics": {
       "type": "collection-grid",
       "settings": {
-        "heading": "Iceberg Classics",
-        "collection": ""
+        "heading": "Atelier Collection",
+        "collection": "atelier"
       }
     },
     "perfect-choice": {
