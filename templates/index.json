@@ -56,7 +56,21 @@
       "type": "rings-by-cut",
       "settings": {
         "heading": "Rings by Cut"
-      }
+      },
+      "blocks": {
+        "cut-solitaire": { "type": "cut", "settings": { "label": "Shop Solitaire", "url": "/collections/solitaire" } },
+        "cut-cushion":   { "type": "cut", "settings": { "label": "Shop Cushion",   "url": "/collections/cushion" } },
+        "cut-emerald":   { "type": "cut", "settings": { "label": "Shop Emerald",   "url": "/collections/emerald" } },
+        "cut-pear":      { "type": "cut", "settings": { "label": "Shop Pear",      "url": "/collections/pear" } },
+        "cut-oval":      { "type": "cut", "settings": { "label": "Shop Oval",      "url": "/collections/oval" } },
+        "cut-marquise":  { "type": "cut", "settings": { "label": "Shop Marquise",  "url": "/collections/marquise" } },
+        "cut-princess":  { "type": "cut", "settings": { "label": "Shop Princess",  "url": "/collections/princess" } },
+        "cut-radiant":   { "type": "cut", "settings": { "label": "Shop Radiant",   "url": "/collections/radiant" } }
+      },
+      "block_order": [
+        "cut-solitaire", "cut-cushion", "cut-emerald", "cut-pear",
+        "cut-oval", "cut-marquise", "cut-princess", "cut-radiant"
+      ]
     },
     "large-aside": {
       "type": "aside-feature",
