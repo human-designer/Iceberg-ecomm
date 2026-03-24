@@ -54,23 +54,85 @@
     },
     "rings-by-cut": {
       "type": "rings-by-cut",
-      "settings": {
-        "heading": "Rings by Cut"
-      },
       "blocks": {
-        "cut-solitaire": { "type": "cut", "settings": { "label": "Shop Solitaire", "url": "/collections/solitaire" } },
-        "cut-cushion":   { "type": "cut", "settings": { "label": "Shop Cushion",   "url": "/collections/cushion" } },
-        "cut-emerald":   { "type": "cut", "settings": { "label": "Shop Emerald",   "url": "/collections/emerald" } },
-        "cut-pear":      { "type": "cut", "settings": { "label": "Shop Pear",      "url": "/collections/pear" } },
-        "cut-oval":      { "type": "cut", "settings": { "label": "Shop Oval",      "url": "/collections/oval" } },
-        "cut-marquise":  { "type": "cut", "settings": { "label": "Shop Marquise",  "url": "/collections/marquise" } },
-        "cut-princess":  { "type": "cut", "settings": { "label": "Shop Princess",  "url": "/collections/princess" } },
-        "cut-radiant":   { "type": "cut", "settings": { "label": "Shop Radiant",   "url": "/collections/radiant" } }
+        "cut-solitaire": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/899931eaad9b3a25c443e55a7a734298e88f173f.png",
+            "label": "Shop Solitaire",
+            "url": "/collections/solitaire"
+          }
+        },
+        "cut-cushion": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/58da7cdbbdf9af94213b75de0e56b79a523e8746.png",
+            "label": "Shop Cushion",
+            "url": "/collections/cushion"
+          }
+        },
+        "cut-emerald": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/5742ea4beffc9606ae61b8b336de3d2e55d2e5dc.png",
+            "label": "Shop Emerald",
+            "url": "/collections/emerald"
+          }
+        },
+        "cut-pear": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/198ad9eb53fc56aec38d8ba66a93042c19109877.png",
+            "label": "Shop Pear",
+            "url": "/collections/pear"
+          }
+        },
+        "cut-oval": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/5840105b4d6b6bbd68f00168962316fce48e4b8d.png",
+            "label": "Shop Oval",
+            "url": "/collections/oval"
+          }
+        },
+        "cut-marquise": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/478549e9ea41ca1963f6d83bb0ab9cc3fbe2ac4e.png",
+            "label": "Shop Marquise",
+            "url": "/collections/marquise"
+          }
+        },
+        "cut-princess": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/5840105b4d6b6bbd68f00168962316fce48e4b8d.png",
+            "label": "Shop Princess",
+            "url": "/collections/princess"
+          }
+        },
+        "cut-radiant": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/ca372a58892c180fc765aa0e06cdfdb552524dfc.png",
+            "label": "Shop Radiant",
+            "url": "/collections/radiant"
+          }
+        }
       },
       "block_order": [
-        "cut-solitaire", "cut-cushion", "cut-emerald", "cut-pear",
-        "cut-oval", "cut-marquise", "cut-princess", "cut-radiant"
-      ]
+        "cut-solitaire",
+        "cut-cushion",
+        "cut-emerald",
+        "cut-pear",
+        "cut-oval",
+        "cut-marquise",
+        "cut-princess",
+        "cut-radiant"
+      ],
+      "settings": {
+        "heading": "Rings by Cut"
+      }
     },
     "large-aside": {
       "type": "aside-feature",
