@@ -150,6 +150,7 @@
       "type": "editorial-split",
       "settings": {
         "layout": "image_left",
+        "image": "shopify://shop_images/ib-1.png",
         "image_alt": "",
         "label": "",
         "title": "We co-create with you",
