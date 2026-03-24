@@ -3,6 +3,9 @@
 
   <div class="classics__grid">
     {%- assign grid_collection = collections[section.settings.collection] -%}
+    {%- if grid_collection == blank -%}
+      {%- assign grid_collection = collections.all -%}
+    {%- endif -%}
     {%- if grid_collection != blank and grid_collection.products.size > 0 -%}
       {%- for product in grid_collection.products limit: 6 -%}
         {%- render 'product-card', product: product -%}

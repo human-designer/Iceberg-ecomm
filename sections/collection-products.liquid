@@ -1,0 +1,17 @@
+<section class="classics" aria-label="{{ collection.title | escape }}">
+  <div class="classics__grid">
+    {%- for product in collection.products -%}
+      {%- render 'product-card', product: product -%}
+    {%- else -%}
+      <p class="collection-empty">No products found.</p>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "settings": [],
+  "presets": [{ "name": "Collection Products" }]
+}
+{% endschema %}

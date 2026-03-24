@@ -1,0 +1,74 @@
+{%- comment -%}
+  Section: product-details
+  Editorial "Come Say Hello" split section — image left, text + CTA right.
+{%- endcomment -%}
+
+<section class="pdp-editorial reveal">
+  <div class="pdp-editorial__image">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1400 | image_tag:
+          alt: section.settings.image.alt | default: section.settings.heading,
+          loading: 'lazy',
+          widths: '600, 900, 1400' }}
+    {%- else -%}
+      <div class="pdp-editorial__placeholder"></div>
+    {%- endif -%}
+  </div>
+
+  <div class="pdp-editorial__content">
+    <div class="pdp-editorial__inner">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="pdp-editorial__heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.body != blank -%}
+        <p class="pdp-editorial__body">{{ section.settings.body }}</p>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_url | default: '/collections/all' }}" class="pdp-editorial__cta btn-outline">
+          {{ section.settings.button_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Details",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Come Say Hello"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Body text",
+      "default": "Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard — because the most worn object of your life deserves nothing less."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Collection"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Details"
+    }
+  ]
+}
+{% endschema %}

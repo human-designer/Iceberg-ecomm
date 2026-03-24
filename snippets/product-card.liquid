@@ -12,8 +12,9 @@
     {%- endif -%}
   </div>
   <div class="product-card__info">
-    <h3 class="product-card__title">{{ product.title }}</h3>
-    <p class="product-card__desc">{{ product.metafields.custom.subtitle | default: product.type }}</p>
+    {%- assign title_parts = product.title | split: ' — ' -%}
+    <h3 class="product-card__title">{{ title_parts[0] }}</h3>
+    <p class="product-card__desc">{{ product.metafields.descriptors.subtitle.value | default: product.metafields.descriptors.subtitle | default: title_parts[1] | default: product.type }}</p>
     <p class="product-card__price">
       {%- if product.price == 0 -%}
         Make an Enquiry
