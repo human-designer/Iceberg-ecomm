@@ -24,6 +24,21 @@
   reveals.forEach(el => observer.observe(el));
 })();
 
+// Footer staggered reveal
+(function () {
+  const els = document.querySelectorAll('.footer-reveal');
+  if (!els.length) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(el => observer.observe(el));
+})();
+
 // PDP — mobile carousel dot sync
 (function () {
   const track = document.getElementById('pdpTrack');
