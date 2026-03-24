@@ -94,7 +94,8 @@
             <div class="pdp__desc-text">
               {{- product.description | split: '<br>' | first | strip_html | truncate: 300 -}}
             </div>
-            {%- if product.description | size > 300 -%}
+            {%- assign desc_size = product.description | size -%}
+            {%- if desc_size > 300 -%}
               <button class="pdp__read-more" data-expand-desc aria-expanded="false">Read more</button>
             {%- endif -%}
           </div>
