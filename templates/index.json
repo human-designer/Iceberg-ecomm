@@ -36,7 +36,11 @@
       "type": "collection-grid",
       "settings": {
         "heading": "Atelier Collection",
+<<<<<<< HEAD
         "collection": "all"
+=======
+        "collection": "atelier"
+>>>>>>> 2aa931aa13b6a84a3fd27c5f7da2e917fd637c38
       }
     },
     "perfect-choice": {
