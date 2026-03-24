@@ -1,0 +1,95 @@
+<section class="editorial-grid reveal">
+
+  {%- comment -%} ── Row 1: left column (text + small image) | right column (tall image) ── {%- endcomment -%}
+  <div class="editorial-grid__inner">
+
+    <div class="editorial-grid__col editorial-grid__col--left">
+      <div class="editorial-grid__content">
+        <p class="editorial-grid__eyebrow">{{ section.settings.eyebrow }}</p>
+        <div class="editorial-grid__text">
+          <p class="editorial-grid__subtitle">{{ section.settings.subtitle }}</p>
+          {%- if section.settings.body != blank -%}
+            <div class="editorial-grid__body rte">{{ section.settings.body }}</div>
+          {%- endif -%}
+          {%- if section.settings.link_text != blank -%}
+            <a href="{{ section.settings.link_url | default: '#' }}" class="editorial-grid__link">
+              {{ section.settings.link_text }}
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="editorial-grid__small-image">
+        {%- if section.settings.image_small != blank -%}
+          {{ section.settings.image_small | image_url: width: 600 | image_tag:
+              loading: 'lazy',
+              alt: section.settings.eyebrow | escape }}
+        {%- else -%}
+          <div class="editorial-grid__placeholder"></div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="editorial-grid__col editorial-grid__col--right">
+      <div class="editorial-grid__tall-image">
+        {%- if section.settings.image_tall != blank -%}
+          {{ section.settings.image_tall | image_url: width: 1400 | image_tag:
+              loading: 'lazy',
+              alt: section.settings.eyebrow | escape }}
+        {%- else -%}
+          <div class="editorial-grid__placeholder"></div>
+        {%- endif -%}
+      </div>
+    </div>
+
+  </div>
+
+  {%- comment -%} ── Row 2: square image | co-create text ── {%- endcomment -%}
+  <div class="editorial-grid__row2">
+
+    <div class="editorial-grid__square-image">
+      {%- if section.settings.image_square != blank -%}
+        {{ section.settings.image_square | image_url: width: 1000 | image_tag:
+            loading: 'lazy',
+            alt: section.settings.row2_title | escape }}
+      {%- else -%}
+        <div class="editorial-grid__placeholder"></div>
+      {%- endif -%}
+    </div>
+
+    <div class="editorial-grid__row2-content">
+      <p class="editorial-grid__subtitle">{{ section.settings.row2_title }}</p>
+      {%- if section.settings.row2_body != blank -%}
+        <div class="editorial-grid__body rte">{{ section.settings.row2_body }}</div>
+      {%- endif -%}
+      {%- if section.settings.row2_link_text != blank -%}
+        <a href="{{ section.settings.row2_link_url | default: '#' }}" class="editorial-grid__link">
+          {{ section.settings.row2_link_text }}
+        </a>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Editorial Grid",
+  "settings": [
+    { "type": "text",         "id": "eyebrow",        "label": "Eyebrow label",         "default": "L'Atelier" },
+    { "type": "text",         "id": "subtitle",       "label": "Subtitle",              "default": "Where creative dialogue takes shape" },
+    { "type": "richtext",     "id": "body",           "label": "Body copy" },
+    { "type": "text",         "id": "link_text",      "label": "Link text",             "default": "Step inside" },
+    { "type": "url",          "id": "link_url",       "label": "Link URL" },
+    { "type": "image_picker", "id": "image_small",    "label": "Small image (bottom-left of text column)" },
+    { "type": "image_picker", "id": "image_tall",     "label": "Tall image (right column)" },
+    { "type": "image_picker", "id": "image_square",   "label": "Square image (row 2, left)" },
+    { "type": "text",         "id": "row2_title",     "label": "Row 2 title",           "default": "We co-create with you" },
+    { "type": "richtext",     "id": "row2_body",      "label": "Row 2 body copy" },
+    { "type": "text",         "id": "row2_link_text", "label": "Row 2 link text",       "default": "Contact" },
+    { "type": "url",          "id": "row2_link_url",  "label": "Row 2 link URL" }
+  ],
+  "presets": [{ "name": "Editorial Grid" }]
+}
+{% endschema %}

@@ -1,11 +1,18 @@
-<section class="editorial-split editorial-split--{{ section.settings.layout }} reveal">
-  <div class="editorial-split__image">
+<section class="editorial-split editorial-split--{{ section.settings.layout }}{% if section.settings.style == 'aside' %} editorial-split--aside{% endif %} reveal">
+  <div class="editorial-split__image{% if section.settings.image_small != blank %} editorial-split__image--has-accent{% endif %}">
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 1400 | image_tag:
           loading: 'lazy',
           alt: section.settings.image_alt | escape }}
     {%- else -%}
       <div class="editorial-split__image-placeholder" aria-hidden="true"></div>
+    {%- endif -%}
+    {%- if section.settings.image_small != blank -%}
+      <div class="editorial-split__image-accent">
+        {{ section.settings.image_small | image_url: width: 400 | image_tag:
+            loading: 'lazy',
+            alt: section.settings.image_alt | escape }}
+      </div>
     {%- endif -%}
   </div>
   <div class="editorial-split__content">
@@ -40,8 +47,19 @@
       ],
       "default": "image_left"
     },
-    { "type": "image_picker", "id": "image",      "label": "Image" },
-    { "type": "text",         "id": "image_alt",  "label": "Image alt text" },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "default", "label": "Default (50/50)" },
+        { "value": "aside",   "label": "Aside (landscape image)" }
+      ],
+      "default": "default"
+    },
+    { "type": "image_picker", "id": "image",       "label": "Image (large)" },
+    { "type": "image_picker", "id": "image_small", "label": "Image (small accent, bottom-left)" },
+    { "type": "text",         "id": "image_alt",   "label": "Image alt text" },
     { "type": "text",         "id": "label",      "label": "Small label" },
     { "type": "text",         "id": "title",      "label": "Title" },
     { "type": "richtext",     "id": "body",       "label": "Body copy" },

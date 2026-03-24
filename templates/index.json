@@ -43,7 +43,6 @@
       "type": "editorial-split",
       "settings": {
         "layout": "image_left",
-        "image": "shopify://shop_images/image_14_1.png",
         "image_alt": "",
         "label": "",
         "title": "Perfect Choice.",
@@ -72,26 +71,21 @@
         "cut-oval", "cut-marquise", "cut-princess", "cut-radiant"
       ]
     },
-    "large-aside": {
-      "type": "aside-feature",
+    "editorial-grid": {
+      "type": "editorial-grid",
       "settings": {
-        "label": "",
-        "title": "Perfect Choice.",
-        "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
-        "link_text": "Shop Collection",
-        "link_url": "/collections/all"
-      }
-    },
-    "cocreate": {
-      "type": "editorial-split",
-      "settings": {
-        "layout": "image_left",
-        "image_alt": "",
-        "label": "",
-        "title": "We co-create with you",
-        "body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
-        "link_text": "Contact",
-        "link_url": "/pages/contact"
+        "eyebrow": "L'Atelier",
+        "subtitle": "Where creative dialogue takes shape",
+        "body": "<p>Iceberg is a space where we open up a dialogue with those seeking to leave a personal mark on the most worn object of their life. It provides the opportunity to create remarkable pieces with freedom, technical expertise and a shared vision.</p>",
+        "link_text": "Step inside",
+        "link_url": "/pages/atelier",
+        "image_small": "shopify://shop_images/ib-2.png",
+        "image_tall": "shopify://shop_images/ib-3.jpg",
+        "image_square": "shopify://shop_images/ib-1.png",
+        "row2_title": "We co-create with you",
+        "row2_body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
+        "row2_link_text": "Contact",
+        "row2_link_url": "/pages/contact"
       }
     }
   },
@@ -102,7 +96,6 @@
     "classics",
     "perfect-choice",
     "rings-by-cut",
-    "large-aside",
-    "cocreate"
+    "editorial-grid"
   ]
 }
