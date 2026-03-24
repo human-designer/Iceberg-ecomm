@@ -136,7 +136,6 @@
     "editorial-grid": {
       "type": "editorial-grid",
       "settings": {
-<<<<<<< HEAD
         "eyebrow": "L'Atelier",
         "subtitle": "Where creative dialogue takes shape",
         "body": "<p>Iceberg is a space where we open up a dialogue with those seeking to leave a personal mark on the most worn object of their life. It provides the opportunity to create remarkable pieces with freedom, technical expertise and a shared vision.</p>",
@@ -149,28 +148,6 @@
         "row2_body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
         "row2_link_text": "Contact",
         "row2_link_url": "/pages/contact"
-=======
-        "label": "",
-        "title": "Perfect Choice.",
-        "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
-        "link_text": "Shop Collection",
-        "link_url": "/collections/all",
-        "secondary_image": "shopify://shop_images/ib-2.png",
-        "image": "shopify://shop_images/ib-3.jpg"
-      }
-    },
-    "cocreate": {
-      "type": "editorial-split",
-      "settings": {
-        "layout": "image_left",
-        "image": "shopify://shop_images/ib-1.png",
-        "image_alt": "",
-        "label": "",
-        "title": "We co-create with you",
-        "body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
-        "link_text": "Contact",
-        "link_url": "/pages/contact"
->>>>>>> 2ee0fa38ac3f85681b262f0ed0327e892b0802d2
       }
     }
   },
