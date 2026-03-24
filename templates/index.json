@@ -141,7 +141,9 @@
         "title": "Perfect Choice.",
         "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
         "link_text": "Shop Collection",
-        "link_url": "/collections/all"
+        "link_url": "/collections/all",
+        "secondary_image": "shopify://shop_images/1779ed16ae3cb9678b8f4d76033f9c249ae23fa4.png",
+        "image": "shopify://shop_images/af94e9e273b048b8d0ea4d4da9300133146d0ae7.jpg"
       }
     },
     "cocreate": {
