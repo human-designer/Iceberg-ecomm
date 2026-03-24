@@ -53,27 +53,90 @@
     },
     "rings-by-cut": {
       "type": "rings-by-cut",
-      "settings": {
-        "heading": "Rings by Cut"
-      },
       "blocks": {
-        "cut-solitaire": { "type": "cut", "settings": { "label": "Shop Solitaire", "url": "/collections/solitaire" } },
-        "cut-cushion":   { "type": "cut", "settings": { "label": "Shop Cushion",   "url": "/collections/cushion" } },
-        "cut-emerald":   { "type": "cut", "settings": { "label": "Shop Emerald",   "url": "/collections/emerald" } },
-        "cut-pear":      { "type": "cut", "settings": { "label": "Shop Pear",      "url": "/collections/pear" } },
-        "cut-oval":      { "type": "cut", "settings": { "label": "Shop Oval",      "url": "/collections/oval" } },
-        "cut-marquise":  { "type": "cut", "settings": { "label": "Shop Marquise",  "url": "/collections/marquise" } },
-        "cut-princess":  { "type": "cut", "settings": { "label": "Shop Princess",  "url": "/collections/princess" } },
-        "cut-radiant":   { "type": "cut", "settings": { "label": "Shop Radiant",   "url": "/collections/radiant" } }
+        "cut-solitaire": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/899931eaad9b3a25c443e55a7a734298e88f173f.png",
+            "label": "Shop Solitaire",
+            "url": "/collections/solitaire"
+          }
+        },
+        "cut-cushion": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/58da7cdbbdf9af94213b75de0e56b79a523e8746.png",
+            "label": "Shop Cushion",
+            "url": "/collections/cushion"
+          }
+        },
+        "cut-emerald": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/478549e9ea41ca1963f6d83bb0ab9cc3fbe2ac4e.png",
+            "label": "Shop Emerald",
+            "url": "/collections/emerald"
+          }
+        },
+        "cut-pear": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/198ad9eb53fc56aec38d8ba66a93042c19109877.png",
+            "label": "Shop Pear",
+            "url": "/collections/pear"
+          }
+        },
+        "cut-oval": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/5840105b4d6b6bbd68f00168962316fce48e4b8d.png",
+            "label": "Shop Oval",
+            "url": "/collections/oval"
+          }
+        },
+        "cut-marquise": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/5742ea4beffc9606ae61b8b336de3d2e55d2e5dc.png",
+            "label": "Shop Marquise",
+            "url": "/collections/marquise"
+          }
+        },
+        "cut-princess": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/7182483a7e05cc84121ed611c231917226bab705.png",
+            "label": "Shop Princess",
+            "url": "/collections/princess"
+          }
+        },
+        "cut-radiant": {
+          "type": "cut",
+          "settings": {
+            "image": "shopify://shop_images/ca372a58892c180fc765aa0e06cdfdb552524dfc.png",
+            "label": "Shop Radiant",
+            "url": "/collections/radiant"
+          }
+        }
       },
       "block_order": [
-        "cut-solitaire", "cut-cushion", "cut-emerald", "cut-pear",
-        "cut-oval", "cut-marquise", "cut-princess", "cut-radiant"
-      ]
+        "cut-solitaire",
+        "cut-cushion",
+        "cut-emerald",
+        "cut-pear",
+        "cut-oval",
+        "cut-marquise",
+        "cut-princess",
+        "cut-radiant"
+      ],
+      "settings": {
+        "heading": "Rings by Cut"
+      }
     },
     "editorial-grid": {
       "type": "editorial-grid",
       "settings": {
+<<<<<<< HEAD
         "eyebrow": "L'Atelier",
         "subtitle": "Where creative dialogue takes shape",
         "body": "<p>Iceberg is a space where we open up a dialogue with those seeking to leave a personal mark on the most worn object of their life. It provides the opportunity to create remarkable pieces with freedom, technical expertise and a shared vision.</p>",
@@ -86,6 +149,28 @@
         "row2_body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
         "row2_link_text": "Contact",
         "row2_link_url": "/pages/contact"
+=======
+        "label": "",
+        "title": "Perfect Choice.",
+        "body": "<p>Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard.</p>",
+        "link_text": "Shop Collection",
+        "link_url": "/collections/all",
+        "secondary_image": "shopify://shop_images/ib-2.png",
+        "image": "shopify://shop_images/ib-3.jpg"
+      }
+    },
+    "cocreate": {
+      "type": "editorial-split",
+      "settings": {
+        "layout": "image_left",
+        "image": "shopify://shop_images/ib-1.png",
+        "image_alt": "",
+        "label": "",
+        "title": "We co-create with you",
+        "body": "<p>If you have a project in mind, we'd be happy to help you bring it to life.</p>",
+        "link_text": "Contact",
+        "link_url": "/pages/contact"
+>>>>>>> 2ee0fa38ac3f85681b262f0ed0327e892b0802d2
       }
     }
   },
