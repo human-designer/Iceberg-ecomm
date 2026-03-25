@@ -1,8 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
+<<<<<<< HEAD
     "product-main": { "type": "product-main", "settings": {} },
     "product-details": { "type": "product-details", "settings": {} },
     "related": { "type": "collection-grid", "settings": { "heading": "You might also like" } }
+=======
+    "product-main": {
+      "type": "product-main",
+      "settings": {
+        "made_to_order_note": "This custom piece takes 8–10 weeks to produce before shipping.",
+        "enquiry_url": ""
+      }
+    },
+    "product-details": {
+      "type": "product-details",
+      "settings": {
+        "image": "shopify://shop_images/876f0ac68a8a51235155283bf8577f5e51e520eb.png",
+        "heading": "Come Say Hello",
+        "body": "Iceberg designs rings that go beyond their occasion, becoming part of the person who wears them. Every piece begins with technical precision, meticulous craft, and a single uncompromising standard — because the most worn object of your life deserves nothing less.",
+        "button_label": "Shop Collection",
+        "button_url": ""
+      }
+    },
+    "related": {
+      "type": "collection-grid",
+      "settings": {
+        "heading": "You may also consider",
+        "collection": ""
+      }
+    }
+>>>>>>> 0733b8521d96d4c18a8e912c4cb24c04dff9ffbb
   },
-  "order": ["product-main", "product-details", "related"]
+  "order": [
+    "product-main",
+    "product-details",
+    "related"
+  ]
 }
