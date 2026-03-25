@@ -78,6 +78,8 @@
     {%- comment -%} ── Info Panel ──────────────────────────────────── {%- endcomment -%}
     <div class="pdp__info">
 
+      <div class="pdp__purchase">
+
       {%- comment -%} Category + Title + Description {%- endcomment -%}
       <div class="pdp__header">
         <div class="pdp__header-top">
@@ -92,22 +94,19 @@
         {%- if product.description != blank -%}
           <div class="pdp__desc">
             <div class="pdp__desc-text">
-              {{- product.description | split: '<br>' | first | strip_html | truncate: 300 -}}
+              {{- product.description | strip_html -}}
             </div>
-            {%- assign desc_size = product.description | size -%}
-            {%- if desc_size > 300 -%}
-              <button class="pdp__read-more" data-expand-desc aria-expanded="false">Read more</button>
-            {%- endif -%}
+            <button class="pdp__read-more" data-expand-desc aria-expanded="false">Read more</button>
           </div>
         {%- endif -%}
 
         {%- comment -%} Specs grid {%- endcomment -%}
-        {%- assign m_material = product.metafields.ring.material.value -%}
-        {%- assign m_shape    = product.metafields.ring.shape.value -%}
-        {%- assign m_cut      = product.metafields.ring.cut.value -%}
-        {%- assign m_carat    = product.metafields.ring.carat.value -%}
-        {%- assign m_clarity  = product.metafields.ring.clarity.value -%}
-        {%- assign m_colour   = product.metafields.ring.colour.value -%}
+        {%- assign m_material = product.metafields.custom.material.value -%}
+        {%- assign m_shape    = product.metafields.custom.shape.value -%}
+        {%- assign m_cut      = product.metafields.custom.cut.value -%}
+        {%- assign m_carat    = product.metafields.custom.carat.value -%}
+        {%- assign m_clarity  = product.metafields.custom.clarity.value -%}
+        {%- assign m_colour   = product.metafields.custom.colour.value -%}
 
         {%- if m_material or m_shape or m_cut or m_carat or m_clarity or m_colour -%}
           <div class="pdp__specs-wrap">
@@ -137,7 +136,7 @@
                 <span class="pdp__spec-value">{{ m_colour | default: '—' }}</span>
               </div>
             </div>
-            {%- assign carat_sizes = product.metafields.ring.carat_sizes.value -%}
+            {%- assign carat_sizes = product.metafields.custom.carat_sizes.value -%}
             {%- if carat_sizes != blank -%}
               <button class="pdp__specs-cta">+ {{ carat_sizes }} carat sizes</button>
             {%- endif -%}
@@ -149,31 +148,19 @@
       {%- form 'product', product, id: 'pdp-form', class: 'pdp__form', novalidate: true -%}
         <input type="hidden" name="id" value="{{ current_variant.id }}" id="pdpVariantId">
 
-        {%- comment -%} Ring Size option {%- endcomment -%}
+        {%- comment -%} Ring Size trigger {%- endcomment -%}
         {%- for option in product.options_with_values -%}
           {%- assign opt_lower = option.name | downcase -%}
           {%- if opt_lower contains 'size' -%}
-            <details class="pdp__size-drawer" id="pdpSizeDrawer">
-              <summary class="pdp__size-trigger">
-                <span class="pdp__size-label">
-                  Ring Size
-                  {%- if option.selected_value != blank -%}
-                    <span class="pdp__size-selected">— {{ option.selected_value }}</span>
-                  {%- endif -%}
+            <button type="button" class="pdp__size-trigger" id="pdpSizeTrigger" aria-expanded="false" aria-controls="pdpSizeRail">
+              <span class="pdp__size-label">
+                Ring Size
+                <span class="pdp__size-selected" id="pdpSizeSelected">
+                  {%- if option.selected_value != blank -%}— {{ option.selected_value }}{%- endif -%}
                 </span>
-                <span class="pdp__size-icon">{%- render 'icon-chevron' -%}</span>
-              </summary>
-              <div class="pdp__size-options">
-                {%- for value in option.values -%}
-                  <button type="button"
-                          class="pdp__size-btn{% if option.selected_value == value %} is-active{% endif %}"
-                          data-option-index="{{ forloop.parentloop.index0 }}"
-                          data-value="{{ value | escape }}">
-                    {{ value }}
-                  </button>
-                {%- endfor -%}
-              </div>
-            </details>
+              </span>
+              <span class="pdp__size-icon">{%- render 'icon-chevron' -%}</span>
+            </button>
           {%- endif -%}
         {%- endfor -%}
 
@@ -208,6 +195,8 @@
         {%- endif -%}
 
       {%- endform -%}
+
+      </div>{%- comment -%} /.pdp__purchase {%- endcomment -%}
 
       {%- comment -%} Info accordions {%- endcomment -%}
       <div class="pdp__accordion">
@@ -270,6 +259,63 @@
 
     </div>
   </div>
+
+  {%- comment -%} ── Right-rail size drawer ──────────────────────────────── {%- endcomment -%}
+  <div class="size-rail" id="pdpSizeRail" aria-hidden="true" aria-label="Choose ring size">
+    <div class="size-rail__overlay" id="pdpSizeOverlay"></div>
+    <div class="size-rail__panel">
+
+      <div class="size-rail__top">
+
+        {%- comment -%} Header: tabs + close {%- endcomment -%}
+        <div class="size-rail__header">
+          <div class="size-rail__tabs" role="tablist">
+            <button class="size-rail__tab is-active" role="tab" data-tab="eu" aria-selected="true">EU Sizes</button>
+            <button class="size-rail__tab" role="tab" data-tab="us" aria-selected="false">US Sizes</button>
+          </div>
+          <button class="size-rail__close" id="pdpSizeClose" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="4" y1="4" x2="16" y2="16" stroke="#141414" stroke-width="1.5"/>
+              <line x1="16" y1="4" x2="4" y2="16" stroke="#141414" stroke-width="1.5"/>
+            </svg>
+          </button>
+        </div>
+
+        {%- comment -%} Size list — data-eu holds the Shopify option value; JS fills data-us {%- endcomment -%}
+        {%- for option in product.options_with_values -%}
+          {%- assign opt_lower = option.name | downcase -%}
+          {%- if opt_lower contains 'size' -%}
+            <div class="size-rail__list" id="pdpSizeList">
+              {%- for value in option.values -%}
+                <button type="button"
+                        class="size-rail__item{% if option.selected_value == value %} is-selected{% endif %}"
+                        data-eu="{{ value | escape }}"
+                        data-option-index="{{ forloop.parentloop.index0 }}">
+                  <span class="size-rail__item-label">{{ value }}</span>
+                  {%- if option.selected_value == value -%}
+                    <span class="size-rail__item-badge">Selected</span>
+                  {%- endif -%}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+
+        <p class="size-rail__another">Request another size</p>
+
+      </div>
+
+      <div class="size-rail__footer">
+        <div class="size-rail__assistance">
+          <p class="size-rail__assistance-heading">Need assistance choosing your size?</p>
+          <p class="size-rail__assistance-body">If you are uncertain of your size, we recommend visiting a local jeweller for a professional fitting, or contact us at <a href="mailto:{{ section.settings.enquiry_email | default: 'info@iceberg.com' }}">{{ section.settings.enquiry_email | default: 'info@iceberg.com' }}</a></p>
+        </div>
+        <button type="button" class="size-rail__add pdp__btn-add" id="pdpSizeAdd">Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 {% schema %}
@@ -286,6 +332,12 @@
       "type": "url",
       "id": "enquiry_url",
       "label": "Enquiry page URL"
+    },
+    {
+      "type": "text",
+      "id": "enquiry_email",
+      "label": "Enquiry email address",
+      "default": "info@iceberg.com"
     }
   ],
   "blocks": [

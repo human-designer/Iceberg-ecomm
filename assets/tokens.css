@@ -35,6 +35,19 @@
   /* Layout */
   --page-padding: 10px;
   --nav-height:   73px;
+
+  /* 12-column grid — 10px margin, 10px gutter */
+  --grid-cols:    12;
+  --grid-gutter:  10px;
+  --grid-margin:  10px;
+  /* col unit = (100vw − 2×margin − 11×gutter) / 12 */
+  /* at 1440px: (1440 − 20 − 110) / 12 = 109.17px */
+  --col: calc((100vw - (var(--grid-margin) * 2) - (var(--grid-gutter) * 11)) / 12);
+  /* span helpers */
+  --span-4:  calc((var(--col) * 4)  + (var(--grid-gutter) * 3));
+  --span-8:  calc((var(--col) * 8)  + (var(--grid-gutter) * 7));
+  --span-6:  calc((var(--col) * 6)  + (var(--grid-gutter) * 5));
+  --span-3:  calc((var(--col) * 3)  + (var(--grid-gutter) * 2));
 }
 
 @media (max-width: 768px) {
