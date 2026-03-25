@@ -43,6 +43,8 @@
       "type": "editorial-split",
       "settings": {
         "layout": "image_left",
+        "style": "default",
+        "image": "shopify://shop_images/image_14_1.png",
         "image_alt": "",
         "label": "",
         "title": "Perfect Choice.",
