@@ -138,10 +138,10 @@
     "editorial-grid": {
       "type": "editorial-grid",
       "settings": {
-        "eyebrow": "L'Atelier",
+        "eyebrow": "L'Atelier Co-create",
         "subtitle": "Where creative dialogue takes shape",
         "body": "<p>Iceberg is a space where we open up a dialogue with those seeking to leave a personal mark on the most worn object of their life. It provides the opportunity to create remarkable pieces with freedom, technical expertise and a shared vision.</p>",
-        "link_text": "Step inside",
+        "link_text": "Enquire",
         "link_url": "/pages/atelier",
         "image_small": "shopify://shop_images/ib-2.png",
         "image_tall": "shopify://shop_images/ib-3.jpg",
