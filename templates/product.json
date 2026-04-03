@@ -3,7 +3,7 @@
     "product-main": {
       "type": "product-main",
       "settings": {
-        "made_to_order_note": "This custom piece takes 8–10 weeks to produce before shipping.",
+        "made_to_order_note": "This custom piece takes 8-10 weeks to produce before shipping.",
         "enquiry_url": ""
       }
     },
