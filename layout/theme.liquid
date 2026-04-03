@@ -18,12 +18,12 @@
   {{ content_for_header }}
 </head>
 <body class="template-{{ template | replace: '/', '-' | replace: '.', '-' }}">
-  {%- section 'announcement-bar' -%}
   {%- section 'header' -%}
   <main id="main-content" tabindex="-1">
     {{ content_for_layout }}
   </main>
   {%- section 'footer' -%}
+  {%- section 'announcement-bar' -%}
   {{ 'theme.js' | asset_url | script_tag }}
 </body>
 </html>

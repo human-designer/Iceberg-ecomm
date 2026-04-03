@@ -1,5 +1,38 @@
 /* ─── ICEBERG THEME JS ────────────────────────────────────────────────── */
 
+// Footer reveal — fixed at bottom, body padding keeps content scrollable over it
+(function () {
+  const wrap = document.querySelector('.footer-sticky-wrap');
+  if (!wrap) return;
+  function setFooterOffset() {
+    document.body.style.paddingBottom = wrap.offsetHeight + 'px';
+  }
+  setFooterOffset();
+  window.addEventListener('resize', setFooterOffset, { passive: true });
+})();
+
+// Announcement bar — sticky bottom, hide on footer, dismiss on close
+(function () {
+  const bar    = document.getElementById('announcementBar');
+  const closeBtn = document.getElementById('announcementClose');
+  const footer = document.querySelector('.footer, footer');
+  if (!bar) return;
+
+  function hide() { bar.classList.add('is-hidden'); }
+
+  // Close button
+  if (closeBtn) closeBtn.addEventListener('click', hide);
+
+  // Hide when footer enters viewport
+  if (footer) {
+    const observer = new IntersectionObserver(
+      entries => { entries.forEach(e => bar.classList.toggle('is-hidden', e.isIntersecting)); },
+      { threshold: 0 }
+    );
+    observer.observe(footer);
+  }
+})();
+
 // Nav scroll behaviour
 (function () {
   const nav = document.getElementById('nav');

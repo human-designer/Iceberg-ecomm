@@ -44,32 +44,6 @@
 
   </div>
 
-  {%- comment -%} ── Row 2: square image | co-create text ── {%- endcomment -%}
-  <div class="editorial-grid__row2">
-
-    <div class="editorial-grid__square-image">
-      {%- if section.settings.image_square != blank -%}
-        {{ section.settings.image_square | image_url: width: 1000 | image_tag:
-            loading: 'lazy',
-            alt: section.settings.row2_title | escape }}
-      {%- else -%}
-        <div class="editorial-grid__placeholder"></div>
-      {%- endif -%}
-    </div>
-
-    <div class="editorial-grid__row2-content">
-      <p class="editorial-grid__subtitle">{{ section.settings.row2_title }}</p>
-      {%- if section.settings.row2_body != blank -%}
-        <div class="editorial-grid__body rte">{{ section.settings.row2_body }}</div>
-      {%- endif -%}
-      {%- if section.settings.row2_link_text != blank -%}
-        <a href="{{ section.settings.row2_link_url | default: '#' }}" class="editorial-grid__link">
-          {{ section.settings.row2_link_text }}
-        </a>
-      {%- endif -%}
-    </div>
-
-  </div>
 
 </section>
 

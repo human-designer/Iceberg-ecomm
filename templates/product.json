@@ -1,19 +1,5 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-<<<<<<< HEAD
-    "product-main": { "type": "product-main", "settings": {} },
-    "product-details": { "type": "product-details", "settings": {} },
-    "related": { "type": "collection-grid", "settings": { "heading": "You might also like" } }
-=======
     "product-main": {
       "type": "product-main",
       "settings": {
@@ -34,11 +20,10 @@
     "related": {
       "type": "collection-grid",
       "settings": {
-        "heading": "You may also consider",
+        "heading": "You might also like",
         "collection": ""
       }
     }
->>>>>>> 0733b8521d96d4c18a8e912c4cb24c04dff9ffbb
   },
   "order": [
     "product-main",

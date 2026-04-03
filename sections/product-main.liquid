@@ -148,10 +148,12 @@
       {%- form 'product', product, id: 'pdp-form', class: 'pdp__form', novalidate: true -%}
         <input type="hidden" name="id" value="{{ current_variant.id }}" id="pdpVariantId">
 
-        {%- comment -%} Ring Size trigger {%- endcomment -%}
+        {%- comment -%} Ring Size trigger — single button regardless of how many size options exist {%- endcomment -%}
+        {%- assign has_size_option = false -%}
         {%- for option in product.options_with_values -%}
           {%- assign opt_lower = option.name | downcase -%}
-          {%- if opt_lower contains 'size' -%}
+          {%- if opt_lower contains 'size' and has_size_option == false -%}
+            {%- assign has_size_option = true -%}
             <button type="button" class="pdp__size-trigger" id="pdpSizeTrigger" aria-expanded="false" aria-controls="pdpSizeRail">
               <span class="pdp__size-label">
                 Ring Size
@@ -281,10 +283,12 @@
           </button>
         </div>
 
-        {%- comment -%} Size list — data-eu holds the Shopify option value; JS fills data-us {%- endcomment -%}
+        {%- comment -%} Size list — data-eu holds the Shopify option value; JS fills data-us. Only the first size option is rendered. {%- endcomment -%}
+        {%- assign size_list_rendered = false -%}
         {%- for option in product.options_with_values -%}
           {%- assign opt_lower = option.name | downcase -%}
-          {%- if opt_lower contains 'size' -%}
+          {%- if opt_lower contains 'size' and size_list_rendered == false -%}
+            {%- assign size_list_rendered = true -%}
             <div class="size-rail__list" id="pdpSizeList">
               {%- for value in option.values -%}
                 <button type="button"
