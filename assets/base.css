@@ -2179,3 +2179,197 @@ a { text-decoration: none; color: inherit; }
   .collection-grid__editorial { grid-column: span 1; grid-row: span 1; }
   .collection-seo { padding: 40px 20px; }
 }
+
+/* ─── DIAMONDS PAGE ────────────────────────────────────────────────────── */
+
+.diamonds__hero {
+  padding: 0 var(--page-padding);
+}
+.diamonds__hero-img {
+  width: 100%;
+  height: 810px;
+  object-fit: cover;
+  display: block;
+}
+.diamonds__hero-placeholder {
+  width: 100%;
+  height: 810px;
+  background: var(--off-white);
+}
+
+/* Explore Collections */
+.diamonds__explore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 160px var(--page-padding);
+  gap: 18px;
+}
+.diamonds__explore-heading {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.diamonds__explore-body {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.065em;
+  color: var(--black);
+  max-width: 520px;
+}
+.diamonds__explore-body p { margin-bottom: 0; }
+.diamonds__explore-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding-top: 19px;
+}
+.diamonds__explore-link {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.065em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: var(--black);
+}
+.diamonds__explore-link:hover {
+  color: var(--slate);
+}
+
+/* Image with text */
+.diamonds__iwt {
+  display: flex;
+  align-items: stretch;
+  padding: 36px 0;
+  gap: 0;
+  min-height: 573px;
+}
+.diamonds__iwt-media {
+  flex: 0 0 calc(50% - 67px);
+  overflow: hidden;
+}
+.diamonds__iwt-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.diamonds__iwt-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 573px;
+  background: var(--off-white);
+}
+.diamonds__iwt-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px 60px 80px;
+  gap: 20px;
+}
+.diamonds__iwt-heading {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.065em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.diamonds__iwt-text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.065em;
+  color: var(--black);
+  max-width: 480px;
+}
+.diamonds__iwt-link {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.065em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-transform: capitalize;
+  color: var(--black);
+}
+.diamonds__iwt-link:hover {
+  color: var(--slate);
+}
+
+/* Reversed layout (text left, image right) */
+.diamonds__iwt--reversed {
+  flex-direction: row-reverse;
+}
+
+/* Quote */
+.diamonds__quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px var(--page-padding) 52px;
+  gap: 25px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.diamonds__quote-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.065em;
+  color: var(--black);
+}
+.diamonds__quote-cite {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.065em;
+  font-style: normal;
+  color: var(--black);
+}
+
+/* Product grid */
+.diamonds__products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 0 var(--page-padding);
+}
+
+/* Responsive — diamonds */
+@media (max-width: 1024px) {
+  .diamonds__hero-img,
+  .diamonds__hero-placeholder { height: 500px; }
+  .diamonds__explore { padding: 100px var(--page-padding); }
+  .diamonds__iwt { min-height: 450px; }
+  .diamonds__iwt-content { padding: 16px 40px 60px; }
+  .diamonds__products { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .diamonds__hero-img,
+  .diamonds__hero-placeholder { height: 400px; }
+  .diamonds__explore { padding: 80px var(--page-padding); }
+  .diamonds__iwt,
+  .diamonds__iwt--reversed {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .diamonds__iwt-media { flex: none; }
+  .diamonds__iwt-placeholder { min-height: 350px; }
+  .diamonds__iwt-content { padding: 40px 20px; }
+  .diamonds__quote { padding: 40px 20px; }
+  .diamonds__products { grid-template-columns: repeat(2, 1fr); }
+}
