@@ -1,0 +1,7 @@
+{
+  "sections": {
+    "collection-hero": { "type": "page-hero", "settings": {} },
+    "collection-products": { "type": "collection-products", "settings": {} }
+  },
+  "order": ["collection-hero", "collection-products"]
+}
