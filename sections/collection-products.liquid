@@ -1,91 +1,132 @@
+{%- assign per_page = section.settings.products_per_page | default: 12 -%}
+{%- paginate collection.products by per_page -%}
+
 <section class="collection-page" aria-label="{{ collection.title | escape }}">
 
-  {%- comment -%} ── Header bar: title + filter + sort ─────────────────── {%- endcomment -%}
+  {%- comment -%} ── Filter bar ──────────────────────────────────────────── {%- endcomment -%}
   <div class="collection-bar">
+
+    <div class="collection-bar__view">
+      <span class="collection-bar__view-label">View:</span>
+      <button class="collection-bar__view-btn collection-bar__view-btn--active js-view-btn" data-cols="4">Four</button>
+      <button class="collection-bar__view-btn js-view-btn" data-cols="2">Two</button>
+    </div>
+
     <h1 class="collection-bar__title">{{ collection.title }}</h1>
 
-    <div class="collection-bar__filters" id="collectionFilters">
-      {%- comment -%} Active filters {%- endcomment -%}
-      {%- if current_tags.size > 0 -%}
-        {%- for tag in current_tags -%}
-          <a href="{{ collection.url }}/{{ current_tags | reject: tag | join: '+' }}" class="collection-filter__tag collection-filter__tag--active">
-            {{ tag }} &times;
-          </a>
-        {%- endfor -%}
-      {%- endif -%}
-
-      {%- comment -%} All available tags {%- endcomment -%}
-      {%- for tag in collection.all_tags -%}
-        {%- unless current_tags contains tag -%}
-          <a href="{{ collection.url }}/{{ tag }}" class="collection-filter__tag">{{ tag }}</a>
-        {%- endunless -%}
-      {%- endfor -%}
+    <div class="collection-bar__actions">
+      <button class="collection-bar__filter-btn js-open-filters">Filter &amp; Sort</button>
     </div>
 
-    <div class="collection-bar__sort">
-      <label class="collection-bar__sort-label" for="collectionSort">Sort by:</label>
-      <select id="collectionSort" class="collection-bar__sort-select" onchange="window.location = this.value">
-        {%- assign sort_options = 'manual,title-ascending,title-descending,price-ascending,price-descending,created-descending' | split: ',' -%}
-        {%- assign sort_labels  = 'Featured,Name A–Z,Name Z–A,Price: Low–High,Price: High–Low,Newest' | split: ',' -%}
-        {%- for option in sort_options -%}
-          <option value="{{ collection.url }}?sort_by={{ option }}"
-            {% if collection.sort_by == option or (collection.sort_by == blank and forloop.first) %}selected{% endif %}>
-            {{ sort_labels[forloop.index0] }}
-          </option>
-        {%- endfor -%}
-      </select>
-    </div>
   </div>
 
   {%- comment -%} ── Product grid ──────────────────────────────────────── {%- endcomment -%}
-  <div class="collection-grid">
-    {%- assign editorial_slots = section.settings.editorial_slots | split: ',' -%}
-    {%- assign product_index = 0 -%}
+  {%- assign editorial_pos = section.settings.editorial_position | default: 4 | plus: 0 -%}
+  <div class="collection-grid js-collection-grid" data-cols="4">
 
     {%- for product in collection.products -%}
-      {%- assign product_index = forloop.index -%}
 
-      {%- comment -%} Insert editorial image before slot if configured {%- endcomment -%}
-      {%- for slot in editorial_slots -%}
-        {%- assign slot_num = slot | strip | plus: 0 -%}
-        {%- if slot_num == product_index -%}
-          {%- assign editorial_image_key = 'editorial_image_' | append: forloop.index -%}
-          {%- assign editorial_image = section.settings[editorial_image_key] -%}
-          {%- if editorial_image != blank -%}
-            <div class="collection-grid__editorial">
-              {{ editorial_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: collection.title }}
-            </div>
-          {%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
+      {%- comment -%} Insert editorial image after product N {%- endcomment -%}
+      {%- if forloop.index == editorial_pos and section.settings.editorial_image != blank -%}
+        <div class="collection-grid__editorial">
+          {{ section.settings.editorial_image | image_url: width: 900 | image_tag:
+              loading: 'lazy',
+              alt: collection.title }}
+        </div>
+      {%- endif -%}
 
       {%- render 'product-card', product: product -%}
+
     {%- else -%}
       <p class="collection-empty">No products found.</p>
     {%- endfor -%}
+
   </div>
 
-  {%- comment -%} ── Pagination ────────────────────────────────────────── {%- endcomment -%}
+  {%- comment -%} ── Load more / pagination ────────────────────────────── {%- endcomment -%}
   {%- if paginate.pages > 1 -%}
-    <div class="collection-pagination">
-      {{- paginate | default_pagination -}}
+    {%- assign progress_pct = paginate.current_page | times: 100 | divided_by: paginate.pages -%}
+    <div class="collection-load-more">
+      <div class="collection-load-more__tracker">
+        <div class="collection-load-more__progress" style="width: {{ progress_pct }}%"></div>
+      </div>
+      {%- if paginate.next -%}
+        {%- assign remaining = collection.products_count | minus: paginate.current_offset | minus: per_page -%}
+        <a href="{{ paginate.next.url }}" class="collection-load-more__btn">
+          Load {{ remaining }} more products
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%} ── SEO text + breadcrumbs ────────────────────────────── {%- endcomment -%}
+  {%- if collection.description != blank or section.settings.seo_text != blank -%}
+    <div class="collection-seo">
+      <div class="collection-seo__text rte">
+        {%- if section.settings.seo_text != blank -%}
+          {{ section.settings.seo_text }}
+        {%- else -%}
+          {{ collection.description }}
+        {%- endif -%}
+      </div>
+      <nav class="collection-seo__breadcrumbs" aria-label="Breadcrumb">
+        <a href="{{ routes.root_url }}">All Jewellery</a>
+        <span>/</span>
+        <a href="{{ routes.collections_url }}">Collections</a>
+        <span>/</span>
+        <span>{{ collection.title }}</span>
+      </nav>
     </div>
   {%- endif -%}
 
 </section>
+
+<script>
+  (function() {
+    var grid = document.querySelector('.js-collection-grid');
+    var btns = document.querySelectorAll('.js-view-btn');
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cols = this.dataset.cols;
+        grid.dataset.cols = cols;
+        btns.forEach(function(b) { b.classList.remove('collection-bar__view-btn--active'); });
+        this.classList.add('collection-bar__view-btn--active');
+      });
+    });
+  })();
+</script>
+
+{%- endpaginate -%}
 
 {% schema %}
 {
   "name": "Collection Products",
   "settings": [
     {
-      "type": "text",
-      "id": "editorial_slots",
-      "label": "Editorial image positions (comma-separated product indexes, e.g. 5,14)"
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 12
     },
-    { "type": "image_picker", "id": "editorial_image_1", "label": "Editorial image 1" },
-    { "type": "image_picker", "id": "editorial_image_2", "label": "Editorial image 2" },
-    { "type": "image_picker", "id": "editorial_image_3", "label": "Editorial image 3" }
+    {
+      "type": "image_picker",
+      "id": "editorial_image",
+      "label": "Editorial image"
+    },
+    {
+      "type": "number",
+      "id": "editorial_position",
+      "label": "Insert editorial image after product #",
+      "default": 4
+    },
+    {
+      "type": "richtext",
+      "id": "seo_text",
+      "label": "SEO description (overrides collection description)"
+    }
   ],
   "presets": [{ "name": "Collection Products" }]
 }
