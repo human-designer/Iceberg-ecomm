@@ -1,8 +1,53 @@
 {
   "sections": {
-    "diamonds-hero": { "type": "page-hero", "settings": {} },
-    "diamonds-content": { "type": "editorial-split", "settings": {} },
-    "diamond-specs": { "type": "diamond-specs", "settings": {} }
+    "diamonds": {
+      "type": "diamonds-page",
+      "settings": {
+        "explore_heading": "EXPLORE COLLECTIONS",
+        "quote_text": "\"I wanted to create timeless bridal rings with the center stone at the heart. I kept asking myself how classic they could be – yet still carry my expression, that sense of diamonds dancing above the hand.\"",
+        "quote_attribution": "– Sophie van den Berg"
+      },
+      "blocks": {
+        "link_1": {
+          "type": "collection_link",
+          "settings": { "label": "Engagement" }
+        },
+        "link_2": {
+          "type": "collection_link",
+          "settings": { "label": "Wedding Bands" }
+        },
+        "link_3": {
+          "type": "collection_link",
+          "settings": { "label": "Wedding Sets" }
+        },
+        "link_4": {
+          "type": "collection_link",
+          "settings": { "label": "Men's Rings" }
+        },
+        "iwt_1": {
+          "type": "image_with_text",
+          "settings": {
+            "heading": "Collection #1",
+            "link_label": "Discover"
+          }
+        },
+        "iwt_2": {
+          "type": "image_with_text",
+          "settings": {
+            "heading": "Wedding Bands",
+            "link_label": "Discover"
+          }
+        },
+        "iwt_3": {
+          "type": "image_with_text",
+          "settings": {
+            "heading": "Book a Bridal Appointment",
+            "link_label": "Book An Appointment"
+          }
+        }
+      },
+      "block_order": ["link_1", "link_2", "link_3", "link_4", "iwt_1", "iwt_2", "iwt_3"]
+    }
   },
-  "order": ["diamonds-hero", "diamonds-content", "diamond-specs"]
+  "order": ["diamonds"]
 }
