@@ -636,12 +636,12 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 .aside-feature__title {
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: var(--font-display);
   font-size: clamp(24px, 2.2vw, 32px);
-  font-weight: 300;
-  color: var(--navy);
-  letter-spacing: 0.02em;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: var(--type-h2-ls);
+  text-transform: uppercase;
   max-width: 588px;
 }
 .aside-feature__body {
@@ -1185,13 +1185,13 @@ a { text-decoration: none; color: inherit; }
   color: var(--black);
 }
 .pdp__title {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
-  font-weight: 300;
-  line-height: 1.125;
-  letter-spacing: 0.01em;
-  color: var(--black);
+  font-family: var(--font-display);
+  font-size: var(--type-h1-size);
+  font-weight: 400;
+  line-height: var(--type-h1-lh);
+  letter-spacing: var(--type-h1-ls);
+  text-transform: uppercase;
+  color: var(--ink);
   text-transform: capitalize;
 }
 .pdp__desc {
@@ -1267,13 +1267,13 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 .pdp__spec-value {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 18px;
+  font-family: var(--font-display);
+  font-size: var(--type-h4-size);
   font-weight: 400;
-  letter-spacing: 0.018em;
-  line-height: 28px;
-  color: var(--black);
+  letter-spacing: var(--type-h4-ls);
+  line-height: var(--type-h4-lh);
+  text-transform: uppercase;
+  color: var(--ink);
   text-align: center;
 }
 .pdp__specs-cta {
@@ -1614,12 +1614,13 @@ a { text-decoration: none; color: inherit; }
   max-width: 588px;
 }
 .pdp-editorial__heading {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(36px, 4vw, 58px);
-  font-weight: 300;
-  color: var(--black);
-  line-height: 1.19;
+  font-family: var(--font-display);
+  font-size: var(--type-h1-size);
+  font-weight: 400;
+  letter-spacing: var(--type-h1-ls);
+  line-height: var(--type-h1-lh);
+  text-transform: uppercase;
+  color: var(--ink);
 }
 .pdp-editorial__body {
   font-family: var(--sans);
