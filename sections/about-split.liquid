@@ -1,0 +1,34 @@
+<section class="about-split">
+  <div class="about-split__image">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1440 | image_tag:
+          loading: 'lazy',
+          alt: section.settings.image_alt | escape }}
+    {%- else -%}
+      <img src="https://placehold.co/720x960/1a1a1a/ffffff" alt="Iceberg" width="720" height="960">
+    {%- endif -%}
+  </div>
+  <div class="about-split__content reveal">
+    <div class="about-split__content-inner">
+      {%- if section.settings.body != blank -%}
+        <div class="about-split__body rte">{{ section.settings.body }}</div>
+      {%- else -%}
+        <div class="about-split__body rte">
+          <p>Melding antique inspirations with contemporary style, our unique aesthetic stems from a childhood surrounded by art, antiquities and objects. Our career began in the jewellery department of Sotheby's, where we fell in love with antique styles and traditional techniques. We launched Iceberg with a mission to breathe new life into heirloom designs, making them relevant and wearable today.</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Split",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image (left half)" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    { "type": "richtext", "id": "body", "label": "Body copy" }
+  ],
+  "presets": [{ "name": "About — Split" }]
+}
+{% endschema %}

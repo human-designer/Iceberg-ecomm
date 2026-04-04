@@ -1,0 +1,21 @@
+<section class="about-intro reveal">
+  <div class="about-intro__inner">
+    {%- if section.settings.body != blank -%}
+      <div class="about-intro__body rte">{{ section.settings.body }}</div>
+    {%- else -%}
+      <div class="about-intro__body rte">
+        <p>Iceberg is the home of effortlessly considered, contemporary diamond jewellery. We believe that diamonds are too precious to be saved for special occasions. Our distinctive designs are ultra-wearable and endlessly versatile: made to be adored by this generation and the next.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Intro Text",
+  "settings": [
+    { "type": "richtext", "id": "body", "label": "Body copy" }
+  ],
+  "presets": [{ "name": "About — Intro Text" }]
+}
+{% endschema %}

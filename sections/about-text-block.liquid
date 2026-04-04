@@ -1,0 +1,21 @@
+<section class="about-text-block reveal">
+  <div class="about-text-block__inner">
+    {%- if section.settings.body != blank -%}
+      <div class="about-text-block__body rte">{{ section.settings.body }}</div>
+    {%- else -%}
+      <div class="about-text-block__body rte">
+        <p>Our playful, original designs are brought to life by master craftspeople inside our workshops. We champion exceptional hand-craftsmanship, using traditional goldsmithing techniques to create beautiful, unique and modern treasures that become a beloved part of our clients' everyday jewellery wardrobes.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Text Block",
+  "settings": [
+    { "type": "richtext", "id": "body", "label": "Body copy" }
+  ],
+  "presets": [{ "name": "About — Text Block" }]
+}
+{% endschema %}

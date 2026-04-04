@@ -1,0 +1,53 @@
+<section class="about-discover">
+  <div class="about-discover__heading reveal">
+    <p class="about-discover__label">{{ section.settings.label | default: 'DISCOVER MORE' }}</p>
+  </div>
+  <div class="about-discover__grid">
+    <a href="{{ section.settings.link_1_url | default: '/collections/all' }}" class="about-discover__tile">
+      <div class="about-discover__tile-image">
+        {%- if section.settings.image_1 != blank -%}
+          {{ section.settings.image_1 | image_url: width: 1320 | image_tag:
+              loading: 'lazy',
+              alt: section.settings.image_1_alt | escape }}
+        {%- else -%}
+          <img src="https://placehold.co/660x991/1a1a1a/ffffff" alt="Explore Collections" width="660" height="991">
+        {%- endif -%}
+      </div>
+      <div class="about-discover__tile-overlay">
+        <span class="about-discover__tile-label">{{ section.settings.link_1_text | default: 'EXPLORE COLLECTIONS' }}</span>
+      </div>
+    </a>
+    <a href="{{ section.settings.link_2_url | default: '/pages/contact' }}" class="about-discover__tile">
+      <div class="about-discover__tile-image">
+        {%- if section.settings.image_2 != blank -%}
+          {{ section.settings.image_2 | image_url: width: 1320 | image_tag:
+              loading: 'lazy',
+              alt: section.settings.image_2_alt | escape }}
+        {%- else -%}
+          <img src="https://placehold.co/660x991/2a2a2a/ffffff" alt="Book Consultation" width="660" height="991">
+        {%- endif -%}
+      </div>
+      <div class="about-discover__tile-overlay">
+        <span class="about-discover__tile-label">{{ section.settings.link_2_text | default: 'Book Consultation' }}</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Discover More",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Section label", "default": "DISCOVER MORE" },
+    { "type": "image_picker", "id": "image_1", "label": "Tile 1 image" },
+    { "type": "text", "id": "image_1_alt", "label": "Tile 1 alt" },
+    { "type": "text", "id": "link_1_text", "label": "Tile 1 label", "default": "EXPLORE COLLECTIONS" },
+    { "type": "url", "id": "link_1_url", "label": "Tile 1 link" },
+    { "type": "image_picker", "id": "image_2", "label": "Tile 2 image" },
+    { "type": "text", "id": "image_2_alt", "label": "Tile 2 alt" },
+    { "type": "text", "id": "link_2_text", "label": "Tile 2 label", "default": "Book Consultation" },
+    { "type": "url", "id": "link_2_url", "label": "Tile 2 link" }
+  ],
+  "presets": [{ "name": "About — Discover More" }]
+}
+{% endschema %}

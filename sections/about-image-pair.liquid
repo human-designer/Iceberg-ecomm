@@ -1,0 +1,33 @@
+<section class="about-image-pair">
+  <div class="about-image-pair__small reveal">
+    {%- if section.settings.image_small != blank -%}
+      {{ section.settings.image_small | image_url: width: 620 | image_tag:
+          loading: 'lazy',
+          alt: section.settings.image_small_alt | escape }}
+    {%- else -%}
+      <img src="https://placehold.co/310x413/1a1a1a/ffffff" alt="Iceberg" width="310" height="413">
+    {%- endif -%}
+  </div>
+  <div class="about-image-pair__large reveal">
+    {%- if section.settings.image_large != blank -%}
+      {{ section.settings.image_large | image_url: width: 1440 | image_tag:
+          loading: 'lazy',
+          alt: section.settings.image_large_alt | escape }}
+    {%- else -%}
+      <img src="https://placehold.co/720x960/2a2a2a/ffffff" alt="Iceberg" width="720" height="960">
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Image Pair",
+  "settings": [
+    { "type": "image_picker", "id": "image_small", "label": "Small image (left, portrait)" },
+    { "type": "text", "id": "image_small_alt", "label": "Small image alt" },
+    { "type": "image_picker", "id": "image_large", "label": "Large image (right, portrait)" },
+    { "type": "text", "id": "image_large_alt", "label": "Large image alt" }
+  ],
+  "presets": [{ "name": "About — Image Pair" }]
+}
+{% endschema %}

@@ -1,0 +1,32 @@
+<section class="about-image-strip">
+  {%- for i in (1..3) -%}
+    {%- assign img_key = 'image_' | append: i -%}
+    {%- assign alt_key = 'image_' | append: i | append: '_alt' -%}
+    <div class="about-image-strip__item reveal">
+      {%- if section.settings[img_key] != blank -%}
+        {{ section.settings[img_key] | image_url: width: 900 | image_tag:
+            loading: 'lazy',
+            alt: section.settings[alt_key] | escape }}
+      {%- else -%}
+        {%- assign placeholder_colors = '1a1a1a,2a2a2a,222222' | split: ',' -%}
+        {%- assign pc = placeholder_colors[forloop.index0] -%}
+        <img src="https://placehold.co/427x569/{{ pc }}/ffffff" alt="Iceberg" width="427" height="569">
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</section>
+
+{% schema %}
+{
+  "name": "About — Image Strip",
+  "settings": [
+    { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+    { "type": "text", "id": "image_1_alt", "label": "Image 1 alt" },
+    { "type": "image_picker", "id": "image_2", "label": "Image 2" },
+    { "type": "text", "id": "image_2_alt", "label": "Image 2 alt" },
+    { "type": "image_picker", "id": "image_3", "label": "Image 3" },
+    { "type": "text", "id": "image_3_alt", "label": "Image 3 alt" }
+  ],
+  "presets": [{ "name": "About — Image Strip" }]
+}
+{% endschema %}

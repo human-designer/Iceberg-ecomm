@@ -1,9 +1,46 @@
 {
   "sections": {
-    "about-hero": { "type": "page-hero", "settings": {} },
-    "about-manifesto": { "type": "manifesto", "settings": {} },
-    "about-craft": { "type": "editorial-split", "settings": {} },
-    "about-values": { "type": "trust-bar", "settings": {} }
+    "about-hero": {
+      "type": "about-hero",
+      "settings": {}
+    },
+    "about-intro": {
+      "type": "about-intro",
+      "settings": {}
+    },
+    "about-image-pair": {
+      "type": "about-image-pair",
+      "settings": {}
+    },
+    "about-quote": {
+      "type": "about-quote",
+      "settings": {}
+    },
+    "about-split": {
+      "type": "about-split",
+      "settings": {}
+    },
+    "about-text-block": {
+      "type": "about-text-block",
+      "settings": {}
+    },
+    "about-image-strip": {
+      "type": "about-image-strip",
+      "settings": {}
+    },
+    "about-discover": {
+      "type": "about-discover",
+      "settings": {}
+    }
   },
-  "order": ["about-hero", "about-manifesto", "about-craft", "about-values"]
+  "order": [
+    "about-hero",
+    "about-intro",
+    "about-image-pair",
+    "about-quote",
+    "about-split",
+    "about-text-block",
+    "about-image-strip",
+    "about-discover"
+  ]
 }

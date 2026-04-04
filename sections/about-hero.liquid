@@ -1,0 +1,26 @@
+<section class="about-hero">
+  <div class="about-hero__image">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 2800 | image_tag:
+          loading: 'eager',
+          alt: section.settings.image_alt | escape }}
+    {%- else -%}
+      <img src="https://placehold.co/1420x900/2a2a2a/ffffff" alt="Iceberg atelier" width="1420" height="900">
+    {%- endif -%}
+  </div>
+  <div class="about-hero__overlay">
+    <h1 class="about-hero__title">{{ section.settings.title | default: 'MEET ICEBERG' }}</h1>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Hero image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text" },
+    { "type": "text", "id": "title", "label": "Overlay title", "default": "MEET ICEBERG" }
+  ],
+  "presets": [{ "name": "About — Hero" }]
+}
+{% endschema %}

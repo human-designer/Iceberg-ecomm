@@ -1,0 +1,26 @@
+<section class="about-quote reveal">
+  <div class="about-quote__inner">
+    <span class="about-quote__mark" aria-hidden="true">&ldquo;</span>
+    {%- if section.settings.quote != blank -%}
+      <blockquote class="about-quote__text">{{ section.settings.quote }}</blockquote>
+    {%- else -%}
+      <blockquote class="about-quote__text">One of the reasons I started designing jewellery was to reinvigorate some of the antique jewellery making techniques I had discovered. I wanted to recreate them, but in designs that made them relevant and wearable for women today. The whole idea of creating contemporary yet timeless pieces, designed to be passed down generations, is at the very core of what I do.</blockquote>
+    {%- endif -%}
+    {%- if section.settings.attribution != blank -%}
+      <cite class="about-quote__attribution">{{ section.settings.attribution }}</cite>
+    {%- else -%}
+      <cite class="about-quote__attribution">Founder, Iceberg</cite>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About — Quote",
+  "settings": [
+    { "type": "textarea", "id": "quote", "label": "Quote text" },
+    { "type": "text", "id": "attribution", "label": "Attribution" }
+  ],
+  "presets": [{ "name": "About — Quote" }]
+}
+{% endschema %}
