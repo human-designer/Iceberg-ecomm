@@ -1,6 +1,6 @@
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <ul class="nav__links">
-    {%- for link in linklists[section.settings.menu_left].links -%}
+    {%- for link in linklists['main-menu'].links -%}
       <li><a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
     {%- endfor -%}
   </ul>
@@ -17,7 +17,7 @@
   </a>
 
   <div class="nav__actions">
-    {%- for link in linklists[section.settings.menu_right].links -%}
+    {%- for link in linklists['secondary-menu'].links -%}
       <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
     {%- endfor -%}
     {%- if shop.customer_accounts_enabled -%}
