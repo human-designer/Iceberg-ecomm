@@ -14,9 +14,80 @@
   --mid-grey:     #A9B5C2;
   --powder-blue:  #85A9D2;
 
-  /* Typography */
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans:  'Inter', 'DM Sans', system-ui, sans-serif;
+  /* New colour palette */
+  --ink:          #111010;
+  --ink-mid:      #4a4845;
+  --ink-soft:     #8a8784;
+  --paper:        #faf9f7;
+  --paper-warm:   #f0ede8;
+  --rule:         #dddad5;
+  --gold:         #b8a47a;
+
+  /* Typefaces */
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-sans:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  /* Legacy aliases */
+  --serif: var(--font-display);
+  --sans:  var(--font-sans);
+
+  /* Type scale — display */
+  --type-display-size: clamp(56px, 7vw, 112px);
+  --type-display-lh:   0.95;
+  --type-display-ls:   0.06em;
+
+  /* Type scale — headings */
+  --type-h1-size: clamp(36px, 4vw, 64px);
+  --type-h1-lh:   1.0;
+  --type-h1-ls:   0.06em;
+
+  --type-h2-size: clamp(24px, 2.8vw, 40px);
+  --type-h2-lh:   1.05;
+  --type-h2-ls:   0.07em;
+
+  --type-h3-size: 24px;
+  --type-h3-lh:   1.1;
+  --type-h3-ls:   0.06em;
+
+  --type-h4-size: 18px;
+  --type-h4-lh:   1.1;
+  --type-h4-ls:   0.08em;
+
+  /* Type scale — UI */
+  --type-nav-size:     12px;
+  --type-nav-weight:   400;
+  --type-nav-ls:       0.14em;
+
+  --type-eyebrow-size:   10px;
+  --type-eyebrow-weight: 500;
+  --type-eyebrow-ls:     0.22em;
+
+  /* Type scale — body */
+  --type-body-lg-size:   16px;
+  --type-body-lg-weight: 300;
+  --type-body-lg-lh:     1.8;
+  --type-body-lg-ls:     0.02em;
+
+  --type-body-size:   14px;
+  --type-body-weight: 400;
+  --type-body-lh:     1.75;
+  --type-body-ls:     0.015em;
+
+  --type-body-sm-size:   12px;
+  --type-body-sm-weight: 400;
+  --type-body-sm-lh:     1.6;
+  --type-body-sm-ls:     0.025em;
+
+  /* Type scale — data */
+  --type-price-size:   13px;
+  --type-price-weight: 400;
+  --type-price-ls:     0.04em;
+
+  --type-specs-size:   11px;
+  --type-specs-weight: 400;
+  --type-specs-lh:     1.6;
+  --type-specs-ls:     0.06em;
 
   /* Spacing */
   --space-xs:   8px;
